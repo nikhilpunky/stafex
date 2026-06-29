@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JobBox | The Easiest Way to Get Your New Job</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "jobbox-blue": "#0B3D91",      // Navy Blue
+              "jobbox-dark": "#0F172A",      // Dark Grey / Slate
+              "jobbox-muted": "#475569",     // Slate Muted Grey
+              "jobbox-light": "#F8FAFC",     // Generous white background-light
+              "jobbox-border": "#E2E8F0",    // Soft border
+              "jobbox-green": "#10b981",
+              "jobbox-green-light": "#e6fcf5",
+              "primary": "#0B3D91",          // Navy Blue
+              "on-primary": "#ffffff",
+              "secondary": "#0F172A",
+              "surface": "#ffffff",
+              "on-surface": "#0F172A",
+              "stafex-orange": "#FF6B00",    // Minimal orange accent for CTAs
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#475569"
+            },
+            borderRadius: {
+              "custom-1": "30px",
+              "custom-2": "40px"
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #4f5e74;
+            background-color: #ffffff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .btn-hover-effect {
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-hover-effect:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden pt-[80px]">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white fixed top-0 w-full z-50 border-b border-jobbox-border transition-all duration-300 py-4" id="main-header">
+        <div class="flex justify-between items-center px-6 max-w-[1280px] mx-auto w-full">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                <!-- SVG Icon for Stafex -->
+                <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                    <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                    <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    <circle cx="16" cy="16" r="2" fill="white"/>
+                </svg>
+                <span class="tracking-tight">Stafex<span class="text-[#FF6B00]">Services</span></span>
+            </a>
+            
+            <!-- Center Navigation Links -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a class="font-semibold text-jobbox-blue py-2 text-[15px]" href="index.html">Home</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="services.html">Our Services</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="about.html">About Us</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="careers.html">Careers</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="contact.html">Contact Us</a>
+            </div>
+            
+            <!-- Right Actions (Phone & CTA) -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="tel:7757957575" class="flex items-center gap-1.5 font-bold text-jobbox-dark hover:text-jobbox-blue transition-colors text-[15px]">
+                    <span class="material-symbols-outlined text-[20px] text-[#FF6B00]">call</span>
+                    7757957575
+                </a>
+                <a href="contact.html" class="bg-stafex-orange text-white font-bold px-6 py-2.5 rounded-lg hover:bg-opacity-90 active:scale-95 transition-all text-[15px] btn-hover-effect">
+                    Let's Talk Staffing
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-toggle" class="text-jobbox-dark focus:outline-none" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-[32px]">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+        <div id="mobile-drawer-content" class="absolute top-0 right-0 h-full w-80 bg-white shadow-2xl p-6 flex flex-col space-y-6 transform translate-x-full transition-transform duration-300 ease-out">
+            <div class="flex justify-between items-center border-b border-jobbox-border pb-4">
+                <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                        <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    </svg>
+                    <span>Stafex<span class="text-[#FF6B00]">Services</span></span>
+                </a>
+                <button id="mobile-drawer-close" class="text-jobbox-muted hover:text-jobbox-dark focus:outline-none" aria-label="Close Menu">
+                    <span class="material-symbols-outlined text-[28px]">close</span>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4 pt-4 overflow-y-auto flex-grow no-scrollbar">
+                <a class="font-semibold text-jobbox-blue text-lg" href="index.html">Home</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="services.html">Our Services</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="about.html">About Us</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="careers.html">Careers</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="contact.html">Contact Us</a>
+            </div>
+            <div class="pt-6 border-t border-jobbox-border flex flex-col gap-3">
+                <a href="tel:7757957575" class="flex items-center justify-center gap-1.5 font-bold text-jobbox-dark py-2.5 rounded-lg border border-jobbox-border hover:bg-jobbox-light transition-all">
+                    <span class="material-symbols-outlined text-[20px] text-[#FF6B00]">call</span>
+                    7757957575
+                </a>
+                <a href="contact.html" class="block text-center bg-stafex-orange text-white font-bold py-2.5 rounded-lg hover:bg-opacity-95 active:scale-95 transition-all">
+                    Let's Talk Staffing
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-jobbox-light overflow-hidden py-16 md:py-24">
+        <!-- SVG wave backgrounds -->
+        <div class="absolute right-0 top-0 h-full w-[45%] bg-gradient-to-l from-blue-100/50 to-transparent pointer-events-none z-0 rounded-bl-[150px]"></div>
+        
+        <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-12 items-center relative z-10">
+            <!-- Left Text Content (Top on Mobile, Row 1 Col 1-7 on Desktop) -->
+            <div class="lg:col-span-7 space-y-6 lg:space-y-8 lg:col-start-1 lg:row-start-1">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-jobbox-dark leading-[1.15]">
+                    Building <span class="text-jobbox-blue">Workforces</span>.<br/>Powering Businesses.
+                </h1>
+                <p class="text-jobbox-muted text-base md:text-lg max-w-xl leading-relaxed">
+                    Precision in Execution. Confidence in Delivery. Stafex Services delivers reliable, scalable, and compliance-driven manpower services across manufacturing, healthcare, logistics, and corporate sectors.
+                </p>
+            </div>
+            
+            <!-- Right Overlapping Images Area (Middle on Mobile, Row 1-2 Col 8-12 on Desktop) -->
+            <div class="lg:col-span-5 flex justify-center items-center relative py-6 lg:py-0 lg:col-start-8 lg:row-start-1 lg:row-span-2">
+                <!-- Outer blob container -->
+                <div class="relative w-[300px] h-[320px] sm:w-[420px] sm:h-[440px]">
+                    <!-- Decorative Dots Pattern Top Left -->
+                    <svg class="absolute -left-6 top-8 text-blue-200" width="60" height="60" fill="currentColor" viewBox="0 0 100 100">
+                        <circle cx="10" cy="10" r="4"/><circle cx="30" cy="10" r="4"/><circle cx="50" cy="10" r="4"/><circle cx="70" cy="10" r="4"/><circle cx="90" cy="10" r="4"/>
+                        <circle cx="10" cy="30" r="4"/><circle cx="30" cy="30" r="4"/><circle cx="50" cy="30" r="4"/><circle cx="70" cy="30" r="4"/><circle cx="90" cy="30" r="4"/>
+                        <circle cx="10" cy="50" r="4"/><circle cx="30" cy="50" r="4"/><circle cx="50" cy="50" r="4"/><circle cx="70" cy="50" r="4"/><circle cx="90" cy="50" r="4"/>
+                        <circle cx="10" cy="70" r="4"/><circle cx="30" cy="70" r="4"/><circle cx="50" cy="70" r="4"/><circle cx="70" cy="70" r="4"/><circle cx="90" cy="70" r="4"/>
+                    </svg>
+                    
+                    <!-- Decorative Dots Pattern Bottom Right -->
+                    <svg class="absolute -right-6 bottom-8 text-blue-200" width="60" height="60" fill="currentColor" viewBox="0 0 100 100">
+                        <circle cx="10" cy="10" r="4"/><circle cx="30" cy="10" r="4"/><circle cx="50" cy="10" r="4"/><circle cx="70" cy="10" r="4"/><circle cx="90" cy="10" r="4"/>
+                        <circle cx="10" cy="30" r="4"/><circle cx="30" cy="30" r="4"/><circle cx="50" cy="30" r="4"/><circle cx="70" cy="30" r="4"/><circle cx="90" cy="30" r="4"/>
+                        <circle cx="10" cy="50" r="4"/><circle cx="30" cy="50" r="4"/><circle cx="50" cy="50" r="4"/><circle cx="70" cy="50" r="4"/><circle cx="90" cy="50" r="4"/>
+                        <circle cx="10" cy="70" r="4"/><circle cx="30" cy="70" r="4"/><circle cx="50" cy="70" r="4"/><circle cx="70" cy="70" r="4"/><circle cx="90" cy="70" r="4"/>
+                    </svg>
+                    
+                    <!-- Top Image Frame Behind -->
+                    <div class="absolute left-6 top-0 w-[200px] h-[180px] sm:w-[240px] sm:h-[220px] border-4 border-blue-500/20 rounded-tr-[40px] rounded-bl-[40px] rounded-tl-[10px] rounded-br-[10px] transform translate-x-4 -translate-y-4"></div>
+                    
+                    <!-- Top Image (Group) -->
+                    <div class="absolute left-6 top-0 w-[200px] h-[180px] sm:w-[240px] sm:h-[220px] rounded-tr-[40px] rounded-bl-[40px] rounded-tl-[10px] rounded-br-[10px] overflow-hidden shadow-lg border-2 border-white z-10">
+                        <img src="hero_group.png" alt="Group of professionals" class="w-full h-full object-cover"/>
+                    </div>
+                    
+                    <!-- Bottom Image Frame Behind -->
+                    <div class="absolute right-2 bottom-0 w-[200px] h-[180px] sm:w-[240px] sm:h-[220px] border-4 border-blue-500/20 rounded-tl-[40px] rounded-br-[40px] rounded-tr-[10px] rounded-bl-[10px] transform -translate-x-4 translate-y-4"></div>
+                    
+                    <!-- Bottom Image (Handshake) -->
+                    <div class="absolute right-2 bottom-0 w-[200px] h-[180px] sm:w-[240px] sm:h-[220px] rounded-tl-[40px] rounded-br-[40px] rounded-tr-[10px] rounded-bl-[10px] overflow-hidden shadow-lg border-2 border-white z-10">
+                        <img src="hero_meeting.png" alt="Professional Handshake" class="w-full h-full object-cover"/>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Search bar & tags (Bottom on Mobile, Row 2 Col 1-7 on Desktop) -->
+            <div class="lg:col-span-7 space-y-6 lg:col-start-1 lg:row-start-2">
+                <!-- Pill Search Box Container -->
+                <div class="bg-white p-2.5 md:p-3 rounded-2xl md:rounded-full border border-jobbox-border shadow-xl flex flex-col md:flex-row items-center gap-3 md:gap-2 max-w-2xl relative">
+                    <!-- Industry Dropdown -->
+                    <div class="w-full md:w-[30%] relative">
+                        <button id="industry-select-btn" class="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-jobbox-light rounded-full transition-colors text-jobbox-dark font-medium">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-jobbox-blue text-[20px]">business_center</span>
+                                <span id="selected-industry-text" class="truncate text-sm">Sector</span>
+                            </div>
+                            <span class="material-symbols-outlined text-jobbox-muted text-[18px]">expand_more</span>
+                        </button>
+                        <!-- Industry Dropdown List -->
+                        <div id="industry-dropdown" class="hidden absolute top-full left-0 w-full md:w-56 mt-2 bg-white border border-jobbox-border rounded-xl shadow-lg py-2 z-30">
+                            <button class="w-full text-left px-4 py-2.5 text-sm text-jobbox-dark hover:bg-jobbox-light hover:text-jobbox-blue transition-colors">Manufacturing</button>
+                            <button class="w-full text-left px-4 py-2.5 text-sm text-jobbox-dark hover:bg-jobbox-light hover:text-jobbox-blue transition-colors">Healthcare</button>
+                            <button class="w-full text-left px-4 py-2.5 text-sm text-jobbox-dark hover:bg-jobbox-light hover:text-jobbox-blue transition-colors">Logistics</button>
+                            <button class="w-full text-left px-4 py-2.5 text-sm text-jobbox-dark hover:bg-jobbox-light hover:text-jobbox-blue transition-colors">Corporate</button>
+                        </div>
+                    </div>
+                    
+                    <div class="hidden md:block w-[1px] h-8 bg-jobbox-border"></div>
+                    
+                    <!-- Location Dropdown -->
+                    <div class="w-full md:w-[30%] relative">
+                        <button id="location-select-btn" class="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-jobbox-light rounded-full transition-colors text-jobbox-dark font-medium">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-jobbox-blue text-[20px]">location_on</span>
+                                <span id="selected-location-text" class="truncate text-sm">Location</span>
+                            </div>
+                            <span class="material-symbols-outlined text-jobbox-muted text-[18px]">expand_more</span>
+                        </button>
+                        <!-- Location Dropdown List -->
+                        <div id="location-dropdown" class="hidden absolute top-full left-0 w-full md:w-56 mt-2 bg-white border border-jobbox-border rounded-xl shadow-lg py-2 z-30">
+                            <button class="w-full text-left px-4 py-2.5 text-sm text-jobbox-dark hover:bg-jobbox-light hover:text-jobbox-blue transition-colors">Mumbai</button>
+                            <button class="w-full text-left px-4 py-2.5 text-sm text-jobbox-dark hover:bg-jobbox-light hover:text-jobbox-blue transition-colors">Pune</button>
+                            <button class="w-full text-left px-4 py-2.5 text-sm text-jobbox-dark hover:bg-jobbox-light hover:text-jobbox-blue transition-colors">Ahmedabad</button>
+                            <button class="w-full text-left px-4 py-2.5 text-sm text-jobbox-dark hover:bg-jobbox-light hover:text-jobbox-blue transition-colors">Surat</button>
+                        </div>
+                    </div>
+                    
+                    <div class="hidden md:block w-[1px] h-8 bg-jobbox-border"></div>
+                    
+                    <!-- Keywords Input -->
+                    <div class="w-full md:w-[40%] flex items-center gap-2 px-4 py-1.5">
+                        <span class="material-symbols-outlined text-jobbox-blue text-[20px]">search</span>
+                        <input id="keyword-input" type="text" placeholder="Job title or skill..." class="w-full border-none outline-none focus:ring-0 p-0 text-sm text-jobbox-dark font-medium placeholder-jobbox-muted"/>
+                    </div>
+                    
+                    <!-- Search Button -->
+                    <button id="search-submit-btn" class="w-full md:w-auto bg-stafex-orange text-white rounded-full px-7 py-3.5 flex items-center justify-center gap-2 hover:bg-opacity-95 transition-all text-sm font-semibold flex-shrink-0 btn-hover-effect">
+                        <span class="material-symbols-outlined text-[18px]">search</span>
+                        Search
+                    </button>
+                </div>
+                
+                <!-- Popular Searches -->
+                <div class="flex flex-wrap items-center gap-2 text-sm text-jobbox-muted">
+                    <span class="font-semibold text-jobbox-dark">Popular Services:</span>
+                    <button class="hover:text-jobbox-blue hover:underline cursor-pointer transition-colors tag-search-btn">Contract Staffing</button>,
+                    <button class="hover:text-jobbox-blue hover:underline cursor-pointer transition-colors tag-search-btn">Payroll</button>,
+                    <button class="hover:text-jobbox-blue hover:underline cursor-pointer transition-colors tag-search-btn">Apprenticeship</button>,
+                    <button class="hover:text-jobbox-blue hover:underline cursor-pointer transition-colors tag-search-btn">Compliance</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Trusted by Clients Section -->
+    <section class="py-10 bg-white border-b border-jobbox-border">
+        <div class="max-w-[1280px] mx-auto px-6">
+            <p class="text-center text-xs font-bold uppercase tracking-widest text-jobbox-muted mb-6">
+                Trusted by 68+ Leading Brands Across Manufacturing, Healthcare, Logistics & FMCG
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
+                <span class="font-extrabold text-xl tracking-tight text-jobbox-dark select-none">TATA MOTORS</span>
+                <span class="font-bold text-xl tracking-tight text-jobbox-dark select-none">RELIANCE IND</span>
+                <span class="font-black text-xl tracking-tight text-jobbox-dark select-none">ABBOTT LABS</span>
+                <span class="font-bold text-xl tracking-tight text-jobbox-dark select-none">MAHINDRA</span>
+                <span class="font-extrabold text-xl tracking-tight text-jobbox-dark select-none">UNILEVER</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse by Category (Our Workforce Solutions) Section -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-[1280px] mx-auto px-6 relative">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-jobbox-dark mb-3">Our Workforce Solutions</h2>
+                <p class="text-jobbox-muted max-w-xl mx-auto">We serve manufacturing, healthcare, engineering, logistics, and FMCG sectors with reliable talent.</p>
+            </div>
+            
+            <!-- Grid container with pagination controls -->
+            <div class="relative group px-1">
+                <!-- Left Nav Arrow Button -->
+                <button id="slider-prev-btn" class="absolute -left-4 top-1/2 -translate-y-1/2 w-11 h-11 bg-white border border-jobbox-border rounded-full flex items-center justify-center text-jobbox-dark shadow-md hover:bg-jobbox-light hover:text-jobbox-blue transition-all z-20 focus:outline-none">
+                    <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                </button>
+                
+                <!-- Category Sliding Container -->
+                <div id="category-slider" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-6">
+                    <!-- Column 1 -->
+                    <div class="flex flex-col gap-6 flex-shrink-0 snap-start w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] lg:w-[calc(25%-18px)]">
+                        <!-- Contract Staffing -->
+                        <div class="bg-white border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg hover:-translate-y-1 p-5 rounded-xl transition-all duration-300 flex items-center gap-4 cursor-pointer">
+                            <div class="w-12 h-12 bg-jobbox-light text-jobbox-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-[24px]">groups</span>
+                            </div>
+                            <div class="truncate">
+                                <h4 class="font-bold text-jobbox-dark text-base hover:text-jobbox-blue transition-colors truncate">Contract Staffing</h4>
+                                <p class="text-xs text-jobbox-muted mt-0.5">Flexible manpower</p>
+                            </div>
+                        </div>
+                        <!-- Apprenticeship Management -->
+                        <div class="bg-white border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg hover:-translate-y-1 p-5 rounded-xl transition-all duration-300 flex items-center gap-4 cursor-pointer">
+                            <div class="w-12 h-12 bg-jobbox-light text-jobbox-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-[24px]">school</span>
+                            </div>
+                            <div class="truncate">
+                                <h4 class="font-bold text-jobbox-dark text-base hover:text-jobbox-blue transition-colors truncate">Apprenticeship</h4>
+                                <p class="text-xs text-jobbox-muted mt-0.5">NAPS & NATS programs</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 2 -->
+                    <div class="flex flex-col gap-6 flex-shrink-0 snap-start w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] lg:w-[calc(25%-18px)]">
+                        <!-- Third Party Payroll -->
+                        <div class="bg-white border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg hover:-translate-y-1 p-5 rounded-xl transition-all duration-300 flex items-center gap-4 cursor-pointer">
+                            <div class="w-12 h-12 bg-jobbox-light text-jobbox-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-[24px]">payments</span>
+                            </div>
+                            <div class="truncate">
+                                <h4 class="font-bold text-jobbox-dark text-base hover:text-jobbox-blue transition-colors truncate">Third Party Payroll</h4>
+                                <p class="text-xs text-jobbox-muted mt-0.5">Compliant processing</p>
+                            </div>
+                        </div>
+                        <!-- Integrated Workforce Solutions -->
+                        <div class="bg-white border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg hover:-translate-y-1 p-5 rounded-xl transition-all duration-300 flex items-center gap-4 cursor-pointer">
+                            <div class="w-12 h-12 bg-jobbox-light text-jobbox-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-[24px]">business_center</span>
+                            </div>
+                            <div class="truncate">
+                                <h4 class="font-bold text-jobbox-dark text-base hover:text-jobbox-blue transition-colors truncate">Integrated Solutions</h4>
+                                <p class="text-xs text-jobbox-muted mt-0.5">Lifecycle management</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 3 -->
+                    <div class="flex flex-col gap-6 flex-shrink-0 snap-start w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] lg:w-[calc(25%-18px)]">
+                        <!-- Housekeeping Services -->
+                        <div class="bg-white border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg hover:-translate-y-1 p-5 rounded-xl transition-all duration-300 flex items-center gap-4 cursor-pointer">
+                            <div class="w-12 h-12 bg-jobbox-light text-jobbox-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-[24px]">clean_hands</span>
+                            </div>
+                            <div class="truncate">
+                                <h4 class="font-bold text-jobbox-dark text-base hover:text-jobbox-blue transition-colors truncate">Housekeeping</h4>
+                                <p class="text-xs text-jobbox-muted mt-0.5">Safe, clean workplaces</p>
+                            </div>
+                        </div>
+                        <!-- Hospital Staffing -->
+                        <div class="bg-white border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg hover:-translate-y-1 p-5 rounded-xl transition-all duration-300 flex items-center gap-4 cursor-pointer">
+                            <div class="w-12 h-12 bg-jobbox-light text-jobbox-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-[24px]">medical_services</span>
+                            </div>
+                            <div class="truncate">
+                                <h4 class="font-bold text-jobbox-dark text-base hover:text-jobbox-blue transition-colors truncate">Hospital Staffing</h4>
+                                <p class="text-xs text-jobbox-muted mt-0.5">Qualified clinical staff</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 4 -->
+                    <div class="flex flex-col gap-6 flex-shrink-0 snap-start w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] lg:w-[calc(25%-18px)]">
+                        <!-- Permanent Recruitment -->
+                        <div class="bg-white border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg hover:-translate-y-1 p-5 rounded-xl transition-all duration-300 flex items-center gap-4 cursor-pointer">
+                            <div class="w-12 h-12 bg-jobbox-light text-jobbox-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-[24px]">person_search</span>
+                            </div>
+                            <div class="truncate">
+                                <h4 class="font-bold text-jobbox-dark text-base hover:text-jobbox-blue transition-colors truncate">Permanent Hiring</h4>
+                                <p class="text-xs text-jobbox-muted mt-0.5">Vetted & verified talent</p>
+                            </div>
+                        </div>
+                        <!-- Statutory Compliance -->
+                        <div class="bg-white border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg hover:-translate-y-1 p-5 rounded-xl transition-all duration-300 flex items-center gap-4 cursor-pointer">
+                            <div class="w-12 h-12 bg-jobbox-light text-jobbox-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-[24px]">gavel</span>
+                            </div>
+                            <div class="truncate">
+                                <h4 class="font-bold text-jobbox-dark text-base hover:text-jobbox-blue transition-colors truncate">Statutory Compliance</h4>
+                                <p class="text-xs text-jobbox-muted mt-0.5">PF, ESIC, and laws audit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Nav Arrow Button -->
+                <button id="slider-next-btn" class="absolute -right-4 top-1/2 -translate-y-1/2 w-11 h-11 bg-white border border-jobbox-border rounded-full flex items-center justify-center text-jobbox-dark shadow-md hover:bg-jobbox-light hover:text-jobbox-blue transition-all z-20 focus:outline-none">
+                    <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                </button>
+            </div>
+            
+            <!-- Pagination Dots Indicators -->
+            <div class="flex justify-center items-center gap-2.5 mt-4">
+                <button id="dot-0" class="w-2.5 h-2.5 rounded-full bg-jobbox-blue transition-all duration-300"></button>
+                <button id="dot-1" class="w-2.5 h-2.5 rounded-full bg-jobbox-border transition-all duration-300"></button>
+                <button id="dot-2" class="w-2.5 h-2.5 rounded-full bg-jobbox-border transition-all duration-300"></button>
+                <button id="dot-3" class="w-2.5 h-2.5 rounded-full bg-jobbox-border transition-all duration-300"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Stafex (USPs) Section -->
+    <section class="py-12 md:py-20 bg-jobbox-light border-y border-jobbox-border">
+        <div class="max-w-[1280px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#FF6B00] bg-[#fff0e6] px-4 py-1.5 rounded-full">Why Choose Stafex</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-jobbox-dark mt-4 mb-3">Our Core Differentiators</h2>
+                <p class="text-jobbox-muted max-w-xl mx-auto">We combine sourcing power with strict compliance to deliver premium workforce stability.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-jobbox-blue flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-[28px]">search_check</span>
+                    </div>
+                    <h3 class="font-bold text-jobbox-dark text-lg mb-2">Strong Sourcing</h3>
+                    <p class="text-sm text-jobbox-muted leading-relaxed">
+                        Extensive recruitment network ensuring rapid candidate sourcing and minimized hiring turnaround times.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-[28px]">verified_user</span>
+                    </div>
+                    <h3 class="font-bold text-jobbox-dark text-lg mb-2">Compliance First</h3>
+                    <p class="text-sm text-jobbox-muted leading-relaxed">
+                        Zero-compromise statutory compliance covering PF, ESIC, PT, LWF, and all labor regulatory frameworks.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-[28px]">account_tree</span>
+                    </div>
+                    <h3 class="font-bold text-jobbox-dark text-lg mb-2">End-to-End Model</h3>
+                    <p class="text-sm text-jobbox-muted leading-relaxed">
+                        From digital onboarding to lifecycle, payroll, compliance, and exits—we handle the entire ecosystem.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-jobbox-border hover:border-jobbox-blue hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-orange-50 text-[#FF6B00] fill-orange-100 flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-[28px]">handshake</span>
+                    </div>
+                    <h3 class="font-bold text-jobbox-dark text-lg mb-2">Custom Strategy</h3>
+                    <p class="text-sm text-jobbox-muted leading-relaxed">
+                        Flexible staffing and commercial payroll models tailored strictly around your operational objectives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Statistics Section -->
+    <section class="py-16 bg-jobbox-blue text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_120%,rgba(255,107,0,0.15),transparent)]"></div>
+        <div class="max-w-[1280px] mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="space-y-2">
+                    <p class="text-4xl md:text-5xl font-black text-[#FF6B00]">68+</p>
+                    <p class="text-sm font-bold uppercase tracking-wider text-blue-200">Active Clients</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-4xl md:text-5xl font-black text-[#FF6B00]">120k+</p>
+                    <p class="text-sm font-bold uppercase tracking-wider text-blue-200">Payrolled Associates</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-4xl md:text-5xl font-black text-[#FF6B00]">2021</p>
+                    <p class="text-sm font-bold uppercase tracking-wider text-blue-200">Year Established</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-4xl md:text-5xl font-black text-[#FF6B00]">MH & GJ</p>
+                    <p class="text-sm font-bold uppercase tracking-wider text-blue-200">Regional Scope</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-[1280px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#FF6B00] bg-[#fff0e6] px-4 py-1.5 rounded-full">Execution Framework</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-jobbox-dark mt-4 mb-3">Our Stepped Process</h2>
+                <p class="text-jobbox-muted max-w-xl mx-auto">Ensuring absolute compliance and efficiency at every stage of the employee lifecycle.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Line background for desktop -->
+                <div class="hidden md:block absolute top-[44px] left-[10%] right-[10%] h-0.5 bg-jobbox-border z-0"></div>
+                
+                <!-- Step 1 -->
+                <div class="text-center space-y-4 relative z-10">
+                    <div class="w-16 h-16 rounded-full bg-white border-2 border-jobbox-blue text-jobbox-blue font-bold text-lg flex items-center justify-center mx-auto shadow-md">
+                        1
+                    </div>
+                    <h4 class="font-bold text-jobbox-dark text-lg">Sourcing</h4>
+                    <p class="text-sm text-jobbox-muted max-w-xs mx-auto">
+                        Locating matching profiles rapidly using our broad regional talent pool databases.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center space-y-4 relative z-10">
+                    <div class="w-16 h-16 rounded-full bg-white border-2 border-jobbox-blue text-jobbox-blue font-bold text-lg flex items-center justify-center mx-auto shadow-md">
+                        2
+                    </div>
+                    <h4 class="font-bold text-jobbox-dark text-lg">Onboarding</h4>
+                    <p class="text-sm text-jobbox-muted max-w-xs mx-auto">
+                        Complete digital documentation, background checks, and compliance enrollments.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center space-y-4 relative z-10">
+                    <div class="w-16 h-16 rounded-full bg-white border-2 border-[#FF6B00] text-[#FF6B00] font-bold text-lg flex items-center justify-center mx-auto shadow-md">
+                        3
+                    </div>
+                    <h4 class="font-bold text-jobbox-dark text-lg">Deployment</h4>
+                    <p class="text-sm text-jobbox-muted max-w-xs mx-auto">
+                        Deployment to workplaces with structured attendance, reporting, and account management.
+                    </p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="text-center space-y-4 relative z-10">
+                    <div class="w-16 h-16 rounded-full bg-white border-2 border-jobbox-blue text-jobbox-blue font-bold text-lg flex items-center justify-center mx-auto shadow-md">
+                        4
+                    </div>
+                    <h4 class="font-bold text-jobbox-dark text-lg">Payroll & Law</h4>
+                    <p class="text-sm text-jobbox-muted max-w-xs mx-auto">
+                        Precise monthly salary payouts alongside strict labor law compliance documentation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hiring Banner Section -->
+    <section class="py-6 bg-white">
+        <div class="max-w-[1280px] mx-auto px-6">
+            <div class="bg-jobbox-light rounded-2xl border border-jobbox-border p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <!-- Background decorative shapes -->
+                <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-green-200/20 rounded-full blur-xl"></div>
+                <div class="absolute right-0 top-0 w-36 h-36 bg-blue-200/20 rounded-full blur-xl"></div>
+                
+                <!-- Left illustration and content -->
+                <div class="flex items-center gap-6 relative z-10 flex-col md:flex-row text-center md:text-left w-full md:w-auto">
+                    <!-- Custom SVG representing standing hiring person -->
+                    <div class="hidden sm:flex w-20 h-20 items-center justify-center bg-blue-100 rounded-full flex-shrink-0 text-jobbox-blue">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <line x1="19" y1="8" x2="19" y2="14"/>
+                            <line x1="22" y1="11" x2="16" y2="11"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-[#10b981] bg-[#e6fcf5] px-3 py-1 rounded-full">We Are Hiring</span>
+                        <h3 class="text-xl md:text-2xl font-extrabold text-jobbox-dark mt-2">
+                            Let's Work Together & Explore Opportunities
+                        </h3>
+                    </div>
+                </div>
+                
+                <!-- CTA Button and Collaboration Graphic -->
+                <div class="flex items-center gap-6 relative z-10 flex-col sm:flex-row w-full md:w-auto justify-center md:justify-end">
+                    <a href="contact.html" class="bg-jobbox-blue text-white font-bold px-8 py-3.5 rounded-lg hover:bg-opacity-95 shadow-md hover:shadow-lg transition-all text-sm btn-hover-effect text-center min-w-[150px]">
+                        Apply Now
+                    </a>
+                    
+                    <!-- Abstract Group Collab SVG -->
+                    <div class="hidden md:flex items-center text-jobbox-muted">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Job Openings Section -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-[1280px] mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-jobbox-dark mb-3">Featured Openings</h2>
+                <p class="text-jobbox-muted max-w-xl mx-auto">Explore current roles across our client network in Gujarat and Maharashtra.</p>
+            </div>
+            
+            <!-- Category Tabs list (Pills) -->
+            <div id="jobs-tabs" class="flex flex-wrap justify-center items-center gap-3 mb-10">
+                <button data-cat="Manufacturing" class="job-tab-btn active px-5 py-2.5 bg-jobbox-light border border-jobbox-blue text-jobbox-blue text-sm font-semibold rounded-lg shadow-sm hover:border-jobbox-blue hover:text-jobbox-blue transition-all flex items-center gap-1.5 focus:outline-none">
+                    <span class="material-symbols-outlined text-[18px]">factory</span>
+                    Manufacturing
+                </button>
+                <button data-cat="Healthcare" class="job-tab-btn px-5 py-2.5 bg-white border border-jobbox-border text-jobbox-muted text-sm font-semibold rounded-lg hover:border-jobbox-blue hover:text-jobbox-blue transition-all flex items-center gap-1.5 focus:outline-none">
+                    <span class="material-symbols-outlined text-[18px]">medical_services</span>
+                    Healthcare
+                </button>
+                <button data-cat="Logistics" class="job-tab-btn px-5 py-2.5 bg-white border border-jobbox-border text-jobbox-muted text-sm font-semibold rounded-lg hover:border-jobbox-blue hover:text-jobbox-blue transition-all flex items-center gap-1.5 focus:outline-none">
+                    <span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                    Logistics
+                </button>
+                <button data-cat="Corporate" class="job-tab-btn px-5 py-2.5 bg-white border border-jobbox-border text-jobbox-muted text-sm font-semibold rounded-lg hover:border-jobbox-blue hover:text-jobbox-blue transition-all flex items-center gap-1.5 focus:outline-none">
+                    <span class="material-symbols-outlined text-[18px]">laptop_mac</span>
+                    Corporate
+                </button>
+            </div>
+            
+            <!-- Jobs Grid -->
+            <div id="jobs-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-300 min-h-[350px]">
+                <!-- Job cards are dynamically inserted here by Javascript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-jobbox-border py-16">
+        <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+            <!-- Brand Info Column -->
+            <div class="lg:col-span-2 space-y-5">
+                <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                        <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    </svg>
+                    <span>Stafex<span class="text-[#FF6B00]">Services</span></span>
+                </a>
+                <p class="text-jobbox-muted text-sm leading-relaxed max-w-sm">
+                    Stafex Services is a workforce solutions partner delivering reliable, scalable, and compliance-driven manpower services across India.
+                </p>
+                <!-- Social Icons -->
+                <div class="flex gap-4 text-jobbox-muted">
+                    <a href="https://www.instagram.com/stafexservice?igsh=ZnFoa2R1aTFxM2R4" target="_blank" class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5 text-sm font-semibold">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        <span>Follow on Instagram</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">Quick Links</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors" href="index.html">Home</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="about.html">About Us</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="services.html">Our Services</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            
+            <!-- Candidates Column -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">For Candidates</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors" href="careers.html">Find a Job</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="careers.html">Featured Jobs</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="contact.html">Submit Resume</a>
+                </div>
+            </div>
+            
+            <!-- Contact Us Column -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">Get In Touch</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5" href="mailto:Contact@stafex.in">
+                        <span class="material-symbols-outlined text-[16px]">mail</span>
+                        Contact@stafex.in
+                    </a>
+                    <a class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5" href="tel:7757957575">
+                        <span class="material-symbols-outlined text-[16px]">call</span>
+                        7757957575
+                    </a>
+                    <p class="flex items-start gap-1.5">
+                        <span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+                        <span>Corporate HQ: Mumbai,<br/>Maharashtra, India</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1280px] mx-auto px-6 mt-12 pt-8 border-t border-jobbox-border">
+            <p class="text-jobbox-muted text-xs text-center">
+                © 2026 Stafex Services. People. Potential. Performance. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Javascript Logic -->
+    <script>
+        // --- Navigation Drawer (Mobile) ---
+        const menuToggleBtn = document.getElementById('mobile-menu-toggle');
+        const drawerCloseBtn = document.getElementById('mobile-drawer-close');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileDrawerContent = document.getElementById('mobile-drawer-content');
+
+        function openDrawer() {
+            mobileDrawer.classList.remove('pointer-events-none', 'opacity-0');
+            mobileDrawer.classList.add('opacity-100');
+            mobileDrawerContent.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.add('pointer-events-none', 'opacity-0');
+            mobileDrawer.classList.remove('opacity-100');
+            mobileDrawerContent.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggleBtn && drawerCloseBtn && mobileDrawer && mobileDrawerContent) {
+            menuToggleBtn.addEventListener('click', openDrawer);
+            drawerCloseBtn.addEventListener('click', closeDrawer);
+            mobileDrawer.addEventListener('click', (e) => {
+                if (e.target === mobileDrawer) {
+                    closeDrawer();
+                }
+            });
+        }
+
+        // --- Search bar dropdown selectors ---
+        const indBtn = document.getElementById('industry-select-btn');
+        const indDropdown = document.getElementById('industry-dropdown');
+        const indText = document.getElementById('selected-industry-text');
+        const locBtn = document.getElementById('location-select-btn');
+        const locDropdown = document.getElementById('location-dropdown');
+        const locText = document.getElementById('selected-location-text');
+
+        // Toggle Industry Dropdown
+        indBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            indDropdown.classList.toggle('hidden');
+            locDropdown.classList.add('hidden');
+        });
+
+        // Toggle Location Dropdown
+        locBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            locDropdown.classList.toggle('hidden');
+            indDropdown.classList.add('hidden');
+        });
+
+        // Dropdown selection click
+        document.querySelectorAll('#industry-dropdown button').forEach(button => {
+            button.addEventListener('click', () => {
+                indText.textContent = button.textContent;
+                indDropdown.classList.add('hidden');
+            });
+        });
+
+        document.querySelectorAll('#location-dropdown button').forEach(button => {
+            button.addEventListener('click', () => {
+                locText.textContent = button.textContent;
+                locDropdown.classList.add('hidden');
+            });
+        });
+
+        // Close dropdowns on document click
+        document.addEventListener('click', () => {
+            indDropdown.classList.add('hidden');
+            locDropdown.classList.add('hidden');
+        });
+
+        // --- Browse by Category Slider / Carousel ---
+        const slider = document.getElementById('category-slider');
+        const prevBtn = document.getElementById('slider-prev-btn');
+        const nextBtn = document.getElementById('slider-next-btn');
+        const dots = [
+            document.getElementById('dot-0'),
+            document.getElementById('dot-1'),
+            document.getElementById('dot-2'),
+            document.getElementById('dot-3')
+        ];
+
+        // Click on Arrows
+        nextBtn.addEventListener('click', () => {
+            const cardWidth = slider.firstElementChild.getBoundingClientRect().width + 24; // Width + gap
+            slider.scrollLeft += cardWidth;
+        });
+
+        prevBtn.addEventListener('click', () => {
+            const cardWidth = slider.firstElementChild.getBoundingClientRect().width + 24; // Width + gap
+            slider.scrollLeft -= cardWidth;
+        });
+
+        // Update Dots on Scroll
+        slider.addEventListener('scroll', () => {
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+            if (maxScroll <= 0) return;
+            const scrollPercentage = slider.scrollLeft / maxScroll;
+            const activeDotIndex = Math.min(
+                Math.round(scrollPercentage * 3),
+                3
+            );
+            
+            dots.forEach((dot, index) => {
+                if (index === activeDotIndex) {
+                    dot.classList.remove('bg-jobbox-border');
+                    dot.classList.add('bg-jobbox-blue');
+                } else {
+                    dot.classList.remove('bg-jobbox-blue');
+                    dot.classList.add('bg-jobbox-border');
+                }
+            });
+        });
+
+        // Click on Dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const maxScroll = slider.scrollWidth - slider.clientWidth;
+                const scrollTarget = (index / 3) * maxScroll;
+                slider.scrollTo({
+                    left: scrollTarget,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // --- Jobs of the Day Dynamic Filters & Cards dataset ---
+        const jobsDataset = {
+            "Manufacturing": [
+                {
+                    company: "Tata Motors",
+                    location: "Pune, Maharashtra",
+                    logoBg: "#e6f0ff",
+                    logoInitial: "TM",
+                    logoColor: "#0B3D91",
+                    title: "CNC Machine Operator",
+                    type: "Full Time",
+                    posted: "Posted 2 days ago",
+                    desc: "Operate CNC machinery to fabricate high-precision components. Ensure alignment and dimensional adherence.",
+                    tags: ["CNC", "Machining", "Manpower"],
+                    salary: "₹18,000/Month",
+                    urgent: true
+                },
+                {
+                    company: "Mahindra & Mahindra",
+                    location: "Chakan (Pune), MH",
+                    logoBg: "#ffebe6",
+                    logoInitial: "M",
+                    logoColor: "#ff3300",
+                    title: "Assembly Line Operator",
+                    type: "Full Time",
+                    posted: "Posted 1 week ago",
+                    desc: "Assemble automotive aggregates on high-speed line. Strictly adhere to safety and SOP guidelines.",
+                    tags: ["Assembly", "Auto", "SOP"],
+                    salary: "₹16,500/Month",
+                    urgent: false
+                },
+                {
+                    company: "Reliance Industries",
+                    location: "Hazira (Surat), GJ",
+                    logoBg: "#eafaf1",
+                    logoInitial: "R",
+                    logoColor: "#00b33c",
+                    title: "Quality Control Auditor",
+                    type: "Full Time",
+                    posted: "Posted 3 days ago",
+                    desc: "Inspect chemical processing batches and log deviation metrics. Maintain ISO certification standard reports.",
+                    tags: ["Quality", "Audit", "Surat"],
+                    salary: "₹22,000/Month",
+                    urgent: true
+                },
+                {
+                    company: "Unilever India",
+                    location: "Ahmedabad, Gujarat",
+                    logoBg: "#f5f0ff",
+                    logoInitial: "U",
+                    logoColor: "#7000cc",
+                    title: "Packaging Machine Operator",
+                    type: "Full Time",
+                    posted: "Posted 5 days ago",
+                    desc: "Run automated FMCG high-speed flow wrapping machinery. Troubleshoot minor operational line errors.",
+                    tags: ["Packaging", "FMCG", "Ahmedabad"],
+                    salary: "₹17,000/Month",
+                    urgent: false
+                }
+            ],
+            "Healthcare": [
+                {
+                    company: "Abbott Laboratories",
+                    location: "Vikhroli (Mumbai), MH",
+                    logoBg: "#e6f9ff",
+                    logoInitial: "Ab",
+                    logoColor: "#0099cc",
+                    title: "General Duty Assistant (GDA)",
+                    type: "Full Time",
+                    posted: "Posted 1 day ago",
+                    desc: "Assist senior nursing staff with patient transfers, hygiene control, ward cleanliness, and clinical support.",
+                    tags: ["Nursing", "Support", "Hospital"],
+                    salary: "₹15,500/Month",
+                    urgent: true
+                },
+                {
+                    company: "Apollo Hospitals",
+                    location: "Ahmedabad, Gujarat",
+                    logoBg: "#ffe6e6",
+                    logoInitial: "Ap",
+                    logoColor: "#cc0000",
+                    title: "Staff Nurse (ICU)",
+                    type: "Full Time",
+                    posted: "Posted 4 days ago",
+                    desc: "Deliver critical care support to ICU patients. Monitor vitals, administer drug infusions under doctors.",
+                    tags: ["Critical Care", "ICU", "Clinical"],
+                    salary: "₹28,000/Month",
+                    urgent: true
+                },
+                {
+                    company: "Max Diagnostics",
+                    location: "Pune, Maharashtra",
+                    logoBg: "#fff9e6",
+                    logoInitial: "MD",
+                    logoColor: "#e69900",
+                    title: "Lab Assistant (Pathology)",
+                    type: "Full Time",
+                    posted: "Posted 1 week ago",
+                    desc: "Process blood and urine specimen collections. Input digital demographic indices into the path-lab portal.",
+                    tags: ["Specimen", "Lab", "Entry"],
+                    salary: "₹16,000/Month",
+                    urgent: false
+                },
+                {
+                    company: "Metro Healthcare",
+                    location: "Surat, Gujarat",
+                    logoBg: "#f9e6ff",
+                    logoInitial: "MH",
+                    logoColor: "#9900cc",
+                    title: "Hospital Billing Executive",
+                    type: "Full Time",
+                    posted: "Posted 2 days ago",
+                    desc: "Manage outpatient discharge invoices and process TPA insurance approvals under tight deadlines.",
+                    tags: ["Billing", "TPA", "Insurance"],
+                    salary: "₹19,000/Month",
+                    urgent: false
+                }
+            ],
+            "Logistics": [
+                {
+                    company: "DHL Express",
+                    location: "Bhiwandi (Mumbai), MH",
+                    logoBg: "#fff2e6",
+                    logoInitial: "D",
+                    logoColor: "#e65c00",
+                    title: "Warehouse Picker/Packer",
+                    type: "Full Time",
+                    posted: "Posted 1 day ago",
+                    desc: "Scan barcodes, sort regional outbound packages, and pack items securely using RF handheld scanners.",
+                    tags: ["Scanner", "Packing", "Bhiwandi"],
+                    salary: "₹15,000/Month",
+                    urgent: true
+                },
+                {
+                    company: "Tata Logistics",
+                    location: "Pune, Maharashtra",
+                    logoBg: "#e6f2ff",
+                    logoInitial: "TL",
+                    logoColor: "#0066cc",
+                    title: "Dispatch Executive",
+                    type: "Full Time",
+                    posted: "Posted 3 days ago",
+                    desc: "Coordinate route allocations and track vehicle movements. Authorize e-way bills and delivery invoices.",
+                    tags: ["Dispatch", "Bills", "Vehicles"],
+                    salary: "₹18,500/Month",
+                    urgent: false
+                },
+                {
+                    company: "BlueDart Logistics",
+                    location: "Ahmedabad, Gujarat",
+                    logoBg: "#e6fff2",
+                    logoInitial: "BD",
+                    logoColor: "#00cc66",
+                    title: "Hub Supervisor",
+                    type: "Full Time",
+                    posted: "Posted 1 week ago",
+                    desc: "Oversee daily sorting station work shifts. Manage parcel receipts and manage field delivery executives.",
+                    tags: ["Logistics", "Supervisor", "Operations"],
+                    salary: "₹24,000/Month",
+                    urgent: true
+                },
+                {
+                    company: "Reliance Retail Hub",
+                    location: "Surat, Gujarat",
+                    logoBg: "#ffe6e6",
+                    logoInitial: "RR",
+                    logoColor: "#cc0000",
+                    title: "Inventory Controller",
+                    type: "Full Time",
+                    posted: "Posted 5 days ago",
+                    desc: "Execute daily cycle counts and log inventory stock deviations. Reconcile storage logs against ERP records.",
+                    tags: ["Stock", "ERP", "Retail"],
+                    salary: "₹17,500/Month",
+                    urgent: false
+                }
+            ],
+            "Corporate": [
+                {
+                    company: "Stafex Services HQ",
+                    location: "Mumbai, Maharashtra",
+                    logoBg: "#e6ecff",
+                    logoInitial: "SS",
+                    logoColor: "#0B3D91",
+                    title: "Junior Recruiter",
+                    type: "Full Time",
+                    posted: "Posted 2 days ago",
+                    desc: "Source blue-collar and administrative candidates for major clients. Schedule and log screening calls.",
+                    tags: ["Recruiter", "Sourcing", "HR"],
+                    salary: "₹20,000/Month",
+                    urgent: true
+                },
+                {
+                    company: "Randstad India",
+                    location: "Pune, Maharashtra",
+                    logoBg: "#e6ffff",
+                    logoInitial: "RI",
+                    logoColor: "#009999",
+                    title: "Operations Coordinator",
+                    type: "Full Time",
+                    posted: "Posted 6 days ago",
+                    desc: "Coordinate client employee rosters, verify attendance sheets, and coordinate vendor agreements.",
+                    tags: ["Coordinator", "Vendor", "Rosters"],
+                    salary: "₹22,000/Month",
+                    urgent: false
+                },
+                {
+                    company: "Exela Business Services",
+                    location: "Pune, Maharashtra",
+                    logoBg: "#fff0e6",
+                    logoInitial: "E",
+                    logoColor: "#ff6600",
+                    title: "Back Office Operations Associate",
+                    type: "Full Time",
+                    posted: "Posted 4 days ago",
+                    desc: "Perform data capture, process invoices, and manage records on back-end enterprise portals.",
+                    tags: ["Backoffice", "Data", "Invoice"],
+                    salary: "₹16,500/Month",
+                    urgent: true
+                },
+                {
+                    company: "Wipro Services",
+                    location: "Ahmedabad, Gujarat",
+                    logoBg: "#f9e6ff",
+                    logoInitial: "W",
+                    logoColor: "#9900cc",
+                    title: "Data Entry Operator",
+                    type: "Full Time",
+                    posted: "Posted 1 week ago",
+                    desc: "Maintain alphanumeric record logs. Digitize bulk legacy files while checking for accuracy errors.",
+                    tags: ["Data Entry", "Digitize", "Alphanumeric"],
+                    salary: "₹15,000/Month",
+                    urgent: false
+                }
+            ]
+        };
+
+        const grid = document.getElementById('jobs-grid');
+        const tabBtns = document.querySelectorAll('.job-tab-btn');
+
+        function renderJobs(category) {
+            grid.style.opacity = 0;
+            setTimeout(() => {
+                grid.innerHTML = '';
+                const jobs = jobsDataset[category] || [];
+                
+                if (jobs.length === 0) {
+                    grid.innerHTML = `
+                        <div class="col-span-full py-12 text-center text-jobbox-muted">
+                            <span class="material-symbols-outlined text-[48px] text-jobbox-border mb-2">work_off</span>
+                            <p class="font-bold text-lg text-jobbox-dark">No jobs found in this category</p>
+                            <p class="text-sm mt-1">Please explore other job categories</p>
+                        </div>
+                    `;
+                } else {
+                    jobs.forEach(job => {
+                        const tagsHtml = job.tags.map(tag => `
+                            <span class="bg-jobbox-light text-jobbox-muted text-xs px-2.5 py-1 rounded-md font-medium">${tag}</span>
+                        `).join('');
+                        
+                        const urgentHtml = job.urgent ? `
+                            <div class="w-6 h-6 bg-jobbox-green-light text-jobbox-green rounded-full flex items-center justify-center" title="Urgent Recruitment">
+                                <span class="material-symbols-outlined text-[16px] font-bold">bolt</span>
+                            </div>
+                        ` : `<div></div>`;
+
+                        const jobCard = document.createElement('div');
+                        jobCard.className = "bg-white p-6 rounded-2xl border border-jobbox-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between";
+                        jobCard.innerHTML = `
+                            <div>
+                                <!-- Top Row: Company logo & Urgent bolt -->
+                                <div class="flex justify-between items-start">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg" style="background-color: ${job.logoBg}; color: ${job.logoColor}">
+                                            ${job.logoInitial}
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="font-bold text-jobbox-dark text-sm">${job.company}</span>
+                                                <span class="flex items-center text-xs text-jobbox-muted gap-0.5">
+                                                    <span class="material-symbols-outlined text-[14px]">location_on</span>
+                                                    ${job.location}
+                                                </span>
+                                            </div>
+                                            <a href="careers.html" class="font-bold text-base md:text-lg text-jobbox-dark hover:text-jobbox-blue transition-colors mt-1 block">
+                                                ${job.title}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    ${urgentHtml}
+                                </div>
+                                
+                                <!-- Meta: job type & duration -->
+                                <div class="flex items-center gap-4 text-xs text-jobbox-muted mt-3">
+                                    <span class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">schedule</span>
+                                        ${job.type}
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                                        ${job.posted}
+                                    </span>
+                                </div>
+                                
+                                <!-- Description -->
+                                <p class="text-sm text-jobbox-muted mt-3.5 leading-relaxed line-clamp-2">
+                                    ${job.desc}
+                                </p>
+                            </div>
+                            
+                            <!-- Tags and Apply Footer -->
+                            <div class="border-t border-jobbox-border/60 pt-4 mt-5">
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    ${tagsHtml}
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-jobbox-blue font-extrabold text-lg">${job.salary}</span>
+                                    <a href="careers.html" class="bg-jobbox-light text-jobbox-blue hover:bg-jobbox-blue hover:text-white transition-all text-xs font-semibold px-4.5 py-2.5 rounded-lg btn-hover-effect">
+                                        Apply Now
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                        grid.appendChild(jobCard);
+                    });
+                }
+                grid.style.opacity = 1;
+            }, 150);
+        }
+
+        // Tab click listeners
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active classes
+                tabBtns.forEach(b => {
+                    b.classList.remove('active', 'border-jobbox-blue', 'text-jobbox-blue', 'bg-jobbox-light');
+                    b.classList.add('border-jobbox-border', 'text-jobbox-muted', 'bg-white');
+                });
+                
+                btn.classList.remove('border-jobbox-border', 'text-jobbox-muted', 'bg-white');
+                btn.classList.add('active', 'border-jobbox-blue', 'text-jobbox-blue', 'bg-jobbox-light');
+                
+                const category = btn.getAttribute('data-cat');
+                renderJobs(category);
+            });
+        });
+
+        // Popular search tags click listener
+        document.querySelectorAll('.tag-search-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const keyword = btn.textContent;
+                document.getElementById('keyword-input').value = keyword;
+                // Switch tab to matching category if exists
+                const tab = document.querySelector(`.job-tab-btn[data-cat="${keyword}"]`);
+                if (tab) {
+                    tab.click();
+                }
+            });
+        });
+
+        // Search trigger
+        document.getElementById('search-submit-btn').addEventListener('click', () => {
+            const industry = indText.textContent.trim();
+            const location = locText.textContent.trim();
+            // Perform basic tab filtering based on selected keywords or industry
+            let targetCategory = "Manufacturing"; // Default fallback
+            
+            const cats = Object.keys(jobsDataset);
+            if (cats.includes(industry)) {
+                targetCategory = industry;
+            } else if (cats.includes(keyword)) {
+                targetCategory = keyword;
+            }
+            
+            const targetTab = document.querySelector(`.job-tab-btn[data-cat="${targetCategory}"]`);
+            if (targetTab) {
+                targetTab.click();
+                // Scroll to jobs section
+                document.getElementById('jobs-tabs').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Initial render
+        renderJobs("Manufacturing");
+    </script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stafex Services | Building Workforces. Powering Businesses.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#434652",
+                    "on-primary-fixed-variant": "#144296",
+                    "inverse-primary": "#b1c5ff",
+                    "on-tertiary-fixed-variant": "#7a3000",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "surface-container-low": "#f2f4f6",
+                    "primary": "#002869",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#001947",
+                    "surface": "#f7f9fb",
+                    "secondary-fixed": "#d5e3fc",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#4f1c00",
+                    "on-background": "#191c1e",
+                    "surface-tint": "#345baf",
+                    "surface-dim": "#d8dadc",
+                    "outline-variant": "#c4c6d3",
+                    "primary-fixed-dim": "#b1c5ff",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-secondary-container": "#57657a",
+                    "tertiary-fixed": "#ffdbcc",
+                    "surface-container": "#eceef0",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-bright": "#f7f9fb",
+                    "secondary-container": "#d5e3fc",
+                    "secondary": "#515f74",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#0b3d91",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-container": "#ff925b",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb693",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "surface-variant": "#e0e3e5",
+                    "background": "#f7f9fb",
+                    "outline": "#747783",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "primary-fixed": "#dae2ff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#351000",
+                    "on-primary-container": "#8dadff",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-container": "#732c00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "xxl": "48px",
+                    "section": "80px",
+                    "gutter": "24px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "caption": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "title-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "headline-md": ["30px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "title-lg": ["20px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .btn-hover-effect {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .btn-hover-effect:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary">
+                Stafex Services
+            </div>
+<div class="hidden md:flex items-center space-x-xl">
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary dark:text-inverse-primary border-b-2 border-primary pb-1 transition-colors duration-200" href="#">Home</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">Services</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">About</a>
+<button class="bg-on-tertiary-container text-on-primary font-label-md text-label-md px-lg py-sm rounded-lg hover:opacity-90 active:opacity-80 transition-all uppercase tracking-wider">
+                    Let's Talk Staffing
+                </button>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary">menu</span>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center pt-xxl">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic, low-angle shot of a high-tech modern manufacturing plant floor with clean white floors and advanced robotic machinery. The lighting is cool-toned with a slight navy blue tint, reflecting a professional and high-trust minimalist aesthetic. The depth of field is shallow, highlighting the precision of the industrial environment while maintaining a serene and authoritative atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXSVW7bOLhjSC4WpsBnLBR3SRGQ5IcPaYhbvE49SHpqPkcMbk54PDfC5ijPYGND8TAXUqjCWT_4jx2Ilg_oP-NSoU64GbD8hO7PbtE7wUgSgdgrvm7aMSb3oU13j_455OTFm1H6D8cU9BTI--t849yViT8VeSRZiMK1N3MgSqwde6V3tDLi-atnCQQWduGivMlLk18qTQLSRDxtjb6wjk9qBK1DCzNq5COHSaF7NRSHBWeBSHayy44C3cIuMOx2dqSz9f_y0LH9A')"></div>
+<div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-lg w-full">
+<div class="max-w-3xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-md reveal active">
+                    Building Workforces. <br/>Powering Businesses.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 mb-xl reveal active" style="transition-delay: 100ms;">
+                    Precision in Execution. Confidence in Delivery. India's trusted partner for scalable, compliant workforce solutions.
+                </p>
+<div class="flex flex-col sm:flex-row gap-md reveal active" style="transition-delay: 200ms;">
+<button class="bg-on-tertiary-container text-on-primary px-xxl py-md font-title-lg text-title-lg rounded-xl btn-hover-effect flex items-center justify-center gap-sm">
+                        Let's Talk Staffing
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border-2 border-on-primary text-on-primary px-xxl py-md font-title-lg text-title-lg rounded-xl btn-hover-effect">
+                        Explore Solutions
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Trusted By Logos -->
+<section class="py-xl bg-surface-container-lowest border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-lg">
+<p class="text-center font-label-md text-label-md uppercase tracking-[0.2em] text-on-surface-variant mb-xl">Empowering Industry Leaders Across</p>
+<div class="flex flex-wrap justify-center items-center gap-xxl opacity-50 grayscale contrast-125">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-headline-sm">precision_manufacturing</span>
+<span class="font-headline-sm font-bold">MANUFACTURING</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-headline-sm">medical_services</span>
+<span class="font-headline-sm font-bold">HEALTHCARE</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-headline-sm">engineering</span>
+<span class="font-headline-sm font-bold">ENGINEERING</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-headline-sm">construction</span>
+<span class="font-headline-sm font-bold">LOGISTICS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Preview Section -->
+<section class="py-section bg-surface">
+<div class="max-w-container-max mx-auto px-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-section">
+<div class="max-w-2xl">
+<span class="text-on-tertiary-container font-label-md text-label-md uppercase tracking-widest block mb-sm">Our Expertise</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Tailored Workforce Strategies</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg">End-to-end recruitment and management services designed to scale with your business demands.</p>
+</div>
+<a class="group flex items-center gap-sm text-primary font-title-lg mt-md md:mt-0" href="#">
+                    View All Services
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Contract Staffing -->
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-outline-variant hover:shadow-xl transition-all duration-300 reveal group">
+<div class="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mb-lg group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary mb-md">Contract Staffing</h3>
+<p class="text-on-surface-variant mb-lg font-body-md text-body-md">Flexible, high-quality talent for short-term and long-term project needs.</p>
+<a class="text-on-tertiary-container font-label-md uppercase font-bold tracking-wider hover:underline" href="#">Learn More</a>
+</div>
+<!-- Apprenticeship Management -->
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-outline-variant hover:shadow-xl transition-all duration-300 reveal group" style="transition-delay: 100ms;">
+<div class="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mb-lg group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">school</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary mb-md">Apprenticeship (NAPS/NATS)</h3>
+<p class="text-on-surface-variant mb-lg font-body-md text-body-md">Seamless management of government-mandated apprenticeship schemes.</p>
+<a class="text-on-tertiary-container font-label-md uppercase font-bold tracking-wider hover:underline" href="#">Learn More</a>
+</div>
+<!-- Payroll -->
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-outline-variant hover:shadow-xl transition-all duration-300 reveal group" style="transition-delay: 200ms;">
+<div class="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mb-lg group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary mb-md">Third Party Payroll</h3>
+<p class="text-on-surface-variant mb-lg font-body-md text-body-md">Error-free payroll processing with 100% compliance guaranteed.</p>
+<a class="text-on-tertiary-container font-label-md uppercase font-bold tracking-wider hover:underline" href="#">Learn More</a>
+</div>
+<!-- Integrated Solutions -->
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-outline-variant hover:shadow-xl transition-all duration-300 reveal group" style="transition-delay: 300ms;">
+<div class="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mb-lg group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary mb-md">Integrated Solutions</h3>
+<p class="text-on-surface-variant mb-lg font-body-md text-body-md">Comprehensive workforce management from sourcing to exit management.</p>
+<a class="text-on-tertiary-container font-label-md uppercase font-bold tracking-wider hover:underline" href="#">Learn More</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Stafex Section (USP Highlights) -->
+<section class="py-section bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-lg">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xxl items-center">
+<div class="relative reveal">
+<div class="aspect-[4/5] rounded-xl bg-cover bg-center" data-alt="A professional corporate portrait of diverse team members in a minimalist, sun-drenched office setting. The composition is clean with plenty of white space. A team member is seen working on a laptop while others collaborate in the background, all captured in a cool blue and crisp white professional color palette. The image exudes high-trust, stability, and high-end consultancy vibes." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDW5oq2zaSyGow71kJp_LYH5AJu1dBGamqforaxb0LVefOWeh7yfCN0pgs2S4VSq4nKjgwGhrFtntmw2zk0JjFMS_ksuFscqd77nPcY8eyyghCcrPqjk1eFH_wKwfQtGeXVR8DkwEvfZn1udn-HGg7xUhyQ_iivzF2beC5jSMAYL0hwKiwcJlieNHCGiZOtHIPHmU9B-I1jN88YETsG-ZB0CtA7MJ3t5PBhBW8FrhcYLovrZR6tRc8tiHGJ_F-mYNQF3csbwGiwHg')"></div>
+<div class="absolute -bottom-xl -right-xl bg-primary p-xl rounded-xl text-on-primary hidden md:block">
+<span class="font-display-lg block mb-xs">100%</span>
+<p class="font-label-md uppercase tracking-widest opacity-80">Compliance Adherence</p>
+</div>
+</div>
+<div class="reveal" style="transition-delay: 200ms;">
+<h2 class="font-headline-md text-headline-md text-primary mb-lg">Why Stafex is the preferred <br/>workforce partner.</h2>
+<div class="space-y-xl">
+<div class="flex gap-lg">
+<div class="flex-shrink-0 w-10 h-10 border border-primary/20 rounded-full flex items-center justify-center text-primary font-bold">01</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-primary mb-sm">Strong Sourcing Engine</h4>
+<p class="text-on-surface-variant">Proprietary talent pool and widespread reach to source high-potential candidates across diverse verticals.</p>
+</div>
+</div>
+<div class="flex gap-lg">
+<div class="flex-shrink-0 w-10 h-10 border border-primary/20 rounded-full flex items-center justify-center text-primary font-bold">02</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-primary mb-sm">Compliance First Approach</h4>
+<p class="text-on-surface-variant">Strict adherence to labor laws and statutory regulations, mitigating risks for our corporate partners.</p>
+</div>
+</div>
+<div class="flex gap-lg">
+<div class="flex-shrink-0 w-10 h-10 border border-primary/20 rounded-full flex items-center justify-center text-primary font-bold">03</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-primary mb-sm">Scalable Operations</h4>
+<p class="text-on-surface-variant">Agile systems capable of managing workforce volumes from hundreds to tens of thousands effortlessly.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Business Statistics Section -->
+<section class="py-section bg-primary text-on-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full" viewbox="0 0 100 100">
+<circle cx="100" cy="0" fill="white" fill-opacity="0.2" r="80"></circle>
+<circle cx="100" cy="0" fill="white" fill-opacity="0.3" r="50"></circle>
+</svg>
+</div>
+<div class="max-w-container-max mx-auto px-lg relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl text-center">
+<div class="reveal">
+<span class="block font-display-lg text-display-lg mb-sm">68+</span>
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] opacity-70">Corporate Clients</span>
+</div>
+<div class="reveal" style="transition-delay: 150ms;">
+<span class="block font-display-lg text-display-lg mb-sm">120,000+</span>
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] opacity-70">Associates Payrolled</span>
+</div>
+<div class="reveal" style="transition-delay: 300ms;">
+<span class="block font-display-lg text-display-lg mb-sm">2021</span>
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] opacity-70">Established Excellence</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-section bg-surface">
+<div class="max-w-container-max mx-auto px-lg">
+<div class="text-center mb-section">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Our Engagement Model</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl mx-auto">A systematic, transparent journey from understanding your needs to delivering performance.</p>
+</div>
+<div class="relative">
+<!-- Progress Line -->
+<div class="absolute top-1/2 left-0 w-full h-px bg-outline-variant hidden lg:block -translate-y-1/2"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-xl relative z-10">
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant reveal text-center lg:text-left">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold mb-md mx-auto lg:mx-0">1</div>
+<h4 class="font-title-lg text-title-lg text-primary mb-sm">Consultation</h4>
+<p class="text-on-surface-variant">We dive deep into your workforce gaps and operational challenges.</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant reveal text-center lg:text-left" style="transition-delay: 150ms;">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold mb-md mx-auto lg:mx-0">2</div>
+<h4 class="font-title-lg text-title-lg text-primary mb-sm">Strategy</h4>
+<p class="text-on-surface-variant">Design a customized staffing and compliance roadmap for your scale.</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant reveal text-center lg:text-left" style="transition-delay: 300ms;">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold mb-md mx-auto lg:mx-0">3</div>
+<h4 class="font-title-lg text-title-lg text-primary mb-sm">Execution</h4>
+<p class="text-on-surface-variant">Rapid deployment of screened talent and automated management tools.</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant reveal text-center lg:text-left" style="transition-delay: 450ms;">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold mb-md mx-auto lg:mx-0">4</div>
+<h4 class="font-title-lg text-title-lg text-primary mb-sm">Performance</h4>
+<p class="text-on-surface-variant">Continuous monitoring and compliance auditing for ongoing stability.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Contact CTA Section -->
+<section class="py-section relative bg-primary">
+<div class="max-w-container-max mx-auto px-lg">
+<div class="bg-on-tertiary-container/10 border border-on-tertiary-container/20 rounded-xxl p-xl md:p-xxl text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-lg">Ready to Scale Your Workforce?</h2>
+<p class="text-on-primary/80 font-body-lg text-body-lg mb-xl max-w-2xl mx-auto">Connect with our consultants today to discover how Stafex can streamline your human resource operations.</p>
+<div class="flex flex-col sm:flex-row gap-lg justify-center">
+<button class="bg-on-tertiary-container text-on-primary px-xxl py-md font-title-lg text-title-lg rounded-xl btn-hover-effect">
+                            Partner With Us
+                        </button>
+<button class="bg-on-primary text-primary px-xxl py-md font-title-lg text-title-lg rounded-xl btn-hover-effect">
+                            Request a Proposal
+                        </button>
+</div>
+</div>
+<!-- Atmospheric background element -->
+<div class="absolute -top-xxl -left-xxl w-96 h-96 bg-on-tertiary-container/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-surface-container-highest w-full py-xxl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg px-lg max-w-container-max mx-auto text-left">
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-primary dark:text-on-surface mb-lg">Stafex Services</div>
+<p class="text-on-primary/80 dark:text-on-surface-variant font-body-md text-body-md mb-lg">Empowering businesses with precision workforce solutions and institutional stability.</p>
+<div class="flex gap-md text-on-primary/60">
+<span class="material-symbols-outlined hover:text-on-primary cursor-pointer transition-colors">language</span>
+<span class="material-symbols-outlined hover:text-on-primary cursor-pointer transition-colors">share</span>
+<span class="material-symbols-outlined hover:text-on-primary cursor-pointer transition-colors">verified</span>
+</div>
+</div>
+<div class="space-y-sm">
+<h5 class="font-title-lg text-title-lg text-on-primary mb-md">Quick Links</h5>
+<div class="flex flex-col gap-sm">
+<a class="text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary-container dark:hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary-container dark:hover:text-primary transition-colors" href="#">Disclaimer</a>
+<a class="text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary-container dark:hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+<div class="space-y-sm">
+<h5 class="font-title-lg text-title-lg text-on-primary mb-md">Get In Touch</h5>
+<div class="flex flex-col gap-sm">
+<a class="text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary-container dark:hover:text-primary transition-colors flex items-center gap-xs" href="mailto:Contact@stafex.in">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+                        Contact@stafex.in
+                    </a>
+<a class="text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary-container dark:hover:text-primary transition-colors flex items-center gap-xs" href="tel:7757957575">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                        7757957575
+                    </a>
+<p class="text-on-primary/80 dark:text-on-surface-variant mt-md">Corporate HQ: Mumbai, Maharashtra</p>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-lg mt-xxl pt-xl border-t border-on-primary/10">
+<p class="text-on-primary/60 dark:text-on-surface-variant text-caption text-center">
+                © 2024 Stafex Services. People. Potential. Performance.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for scroll animations
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Floating Nav logic
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-sm');
+                nav.classList.remove('py-md');
+            } else {
+                nav.classList.add('py-md');
+                nav.classList.remove('py-sm');
+            }
+        });
+    </script>
+</body></html>

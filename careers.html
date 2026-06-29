@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Careers & Jobs | Stafex Services - Find Your Next Opportunity</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              // Stafex Core Design System Colors
+              "primary": "#0B3D91",          // Navy Blue (rebranded from #002869)
+              "on-primary": "#ffffff",
+              "primary-container": "#0B3D91",
+              "on-primary-container": "#8dadff",
+              "secondary": "#515f74",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#d5e3fc",
+              "on-secondary-container": "#57657a",
+              "surface": "#f7f9fb",
+              "on-surface": "#191c1e",
+              "surface-variant": "#e0e3e5",
+              "on-surface-variant": "#434652",
+              "background": "#f7f9fb",
+              "on-background": "#191c1e",
+              "outline": "#747783",
+              "outline-variant": "#c4c6d3",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "surface-container": "#eceef0",
+              "surface-container-high": "#e6e8ea",
+              "surface-container-highest": "#e0e3e5",
+              "inverse-surface": "#2d3133",
+              "inverse-on-surface": "#eff1f3",
+              "error": "#ba1a1a",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+
+              // Rebranded JobBox / Stafex Header & Footer Colors
+              "jobbox-blue": "#0B3D91",      // Navy Blue
+              "jobbox-dark": "#0F172A",      // Dark Grey / Slate
+              "jobbox-muted": "#475569",     // Slate Muted Grey
+              "jobbox-light": "#F8FAFC",     // Light blue-grey background
+              "jobbox-border": "#E2E8F0",    // Soft border
+              "jobbox-green": "#10b981",
+              "jobbox-green-light": "#e6fcf5",
+              "stafex-orange": "#FF6B00",    // Orange accent for CTAs
+            },
+            borderRadius: {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem",
+              "custom-1": "30px",
+              "custom-2": "40px"
+            },
+            spacing: {
+              "xs": "4px",
+              "sm": "8px",
+              "base": "8px",
+              "md": "16px",
+              "lg": "24px",
+              "xl": "32px",
+              "xxl": "48px",
+              "section": "80px",
+              "gutter": "24px",
+              "container-max": "1280px"
+            },
+            fontFamily: {
+              "body-lg": ["Inter"],
+              "caption": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-sm": ["Inter"],
+              "display-lg-mobile": ["Inter"],
+              "display-lg": ["Inter"],
+              "label-md": ["Inter"],
+              "title-lg": ["Inter"]
+            },
+            fontSize: {
+              "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+              "caption": ["12px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "400"}],
+              "headline-md": ["30px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+              "headline-sm": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+              "title-lg": ["20px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .search-input {
+            border: 1px solid #E2E8F0;
+            transition: all 0.2s ease-in-out;
+        }
+        .search-input:focus {
+            border-color: #002869;
+            box-shadow: 0 0 0 3px rgba(0, 40, 105, 0.1);
+            outline: none;
+        }
+        .job-card {
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .job-card:hover {
+            box-shadow: 0px 8px 24px rgba(15, 23, 42, 0.06);
+            transform: translateY(-2px);
+        }
+        .tab-btn {
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden pt-[76px]">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white fixed top-0 w-full z-50 border-b border-jobbox-border transition-all duration-300 py-4" id="main-header">
+        <div class="flex justify-between items-center px-6 max-w-[1280px] mx-auto w-full">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                <!-- SVG Icon for Stafex -->
+                <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                    <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                    <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    <circle cx="16" cy="16" r="2" fill="white"/>
+                </svg>
+                <span class="tracking-tight">Stafex<span class="text-[#FF6B00]">Services</span></span>
+            </a>
+            
+            <!-- Center Navigation Links -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="index.html">Home</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="services.html">Our Services</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="about.html">About Us</a>
+                <a class="font-semibold text-jobbox-blue py-2 text-[15px]" href="careers.html">Careers</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="contact.html">Contact Us</a>
+            </div>
+            
+            <!-- Right Actions (Phone & CTA) -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="tel:7757957575" class="flex items-center gap-1.5 font-bold text-jobbox-dark hover:text-jobbox-blue transition-colors text-[15px]">
+                    <span class="material-symbols-outlined text-[20px] text-[#FF6B00]">call</span>
+                    7757957575
+                </a>
+                <a href="contact.html" class="bg-stafex-orange text-white font-bold px-6 py-2.5 rounded-lg hover:bg-opacity-90 active:scale-95 transition-all text-[15px] btn-hover-effect">
+                    Let's Talk Staffing
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-toggle" class="text-jobbox-dark focus:outline-none" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-[32px]">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+        <div id="mobile-drawer-content" class="absolute top-0 right-0 h-full w-80 bg-white shadow-2xl p-6 flex flex-col space-y-6 transform translate-x-full transition-transform duration-300 ease-out">
+            <div class="flex justify-between items-center border-b border-jobbox-border pb-4">
+                <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                        <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    </svg>
+                    <span>Stafex<span class="text-[#FF6B00]">Services</span></span>
+                </a>
+                <button id="mobile-drawer-close" class="text-jobbox-muted hover:text-jobbox-dark focus:outline-none" aria-label="Close Menu">
+                    <span class="material-symbols-outlined text-[28px]">close</span>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4 pt-4 overflow-y-auto flex-grow no-scrollbar">
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="index.html">Home</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="services.html">Our Services</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="about.html">About Us</a>
+                <a class="font-semibold text-jobbox-blue text-lg" href="careers.html">Careers</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="contact.html">Contact Us</a>
+            </div>
+            <div class="pt-6 border-t border-jobbox-border flex flex-col gap-3">
+                <a href="tel:7757957575" class="flex items-center justify-center gap-1.5 font-bold text-jobbox-dark py-2.5 rounded-lg border border-jobbox-border hover:bg-jobbox-light transition-all">
+                    <span class="material-symbols-outlined text-[20px] text-[#FF6B00]">call</span>
+                    7757957575
+                </a>
+                <a href="contact.html" class="block text-center bg-stafex-orange text-white font-bold py-2.5 rounded-lg hover:bg-opacity-95 active:scale-95 transition-all">
+                    Let's Talk Staffing
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Search Section -->
+        <section class="relative bg-cover bg-center py-section px-lg border-b border-outline-variant/30 overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1521791136368-1a883a75a31f?auto=format&fit=crop&w=1920&q=80');">
+            <!-- Dark Navy Overlay -->
+            <div class="absolute inset-0 bg-[#0B3D91]/90 pointer-events-none"></div>
+            <div class="relative z-10 max-w-container-max mx-auto flex flex-col items-center text-center space-y-lg">
+                <div class="max-w-3xl reveal active">
+                    <span class="text-stafex-orange font-label-md text-label-md uppercase tracking-widest block mb-sm">Explore Job Opportunities</span>
+                    <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-md">
+                        The Easiest Way to Get Your New Job
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-primary/95">
+                        Each month, thousands of skilled associates find contract, apprentice, and payroll careers with India's leading industrial and corporate partners.
+                    </p>
+                </div>
+
+                <!-- Search Input Bar Card -->
+                <div class="w-full max-w-4xl bg-surface-container-lowest border border-outline-variant p-lg rounded-xl shadow-lg reveal active" style="transition-delay: 150ms;">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-md items-center">
+                        
+                        <!-- Industry Dropdown -->
+                        <div class="md:col-span-3 flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-on-surface-variant">work</span>
+                            <select id="search-industry" class="w-full bg-transparent border-0 focus:ring-0 text-body-md py-xs search-input rounded">
+                                <option value="">Industry Category</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="logistics">Logistics</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="tech">IT & Tech</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Divider Line -->
+                        <div class="hidden md:block w-px h-8 bg-outline-variant/60 mx-auto"></div>
+
+                        <!-- Location Input -->
+                        <div class="md:col-span-4 flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-on-surface-variant">location_on</span>
+                            <input type="text" id="search-location" class="w-full bg-transparent border-0 focus:ring-0 text-body-md py-xs search-input rounded" placeholder="Location (e.g. Pune, Mumbai)"/>
+                        </div>
+                        
+                        <!-- Divider Line -->
+                        <div class="hidden md:block w-px h-8 bg-outline-variant/60 mx-auto"></div>
+
+                        <!-- Keywords Input -->
+                        <div class="md:col-span-3 flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-on-surface-variant">search</span>
+                            <input type="text" id="search-keywords" class="w-full bg-transparent border-0 focus:ring-0 text-body-md py-xs search-input rounded" placeholder="Keywords (e.g. Nurse, Supervisor)"/>
+                        </div>
+
+                        <!-- Search Button -->
+                        <div class="md:col-span-2">
+                            <button id="search-btn" class="w-full bg-primary hover:bg-primary/95 text-on-primary font-label-md text-label-md px-lg py-md rounded transition-all flex items-center justify-center gap-xs">
+                                <span>Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular keywords -->
+                <div class="flex flex-wrap justify-center items-center gap-sm text-caption text-on-surface-variant reveal active" style="transition-delay: 200ms;">
+                    <span class="font-bold">Popular Searches:</span>
+                    <button onclick="setSearchQuery('', '', 'Supervisor')" class="hover:text-primary hover:underline">Supervisor,</button>
+                    <button onclick="setSearchQuery('', '', 'Nurse')" class="hover:text-primary hover:underline">Nurse,</button>
+                    <button onclick="setSearchQuery('', '', 'Apprentice')" class="hover:text-primary hover:underline">Apprentice,</button>
+                    <button onclick="setSearchQuery('', '', 'Logistics')" class="hover:text-primary hover:underline">Logistics Coordinator</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browse by Category Grid -->
+        <section class="py-section px-lg bg-surface">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-section reveal">
+                    <h2 class="font-headline-md text-headline-md text-primary mb-md">Browse by Category</h2>
+                    <p class="text-on-surface-variant font-body-md max-w-xl mx-auto">Find the career track that aligns with your professional background and skillsets.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
+                    <!-- Manufacturing Card -->
+                    <div class="bg-surface-container-lowest border border-outline-variant p-lg rounded flex items-center gap-md hover:shadow-md transition-shadow cursor-pointer reveal" onclick="filterByCategoryTab('manufacturing')">
+                        <div class="w-12 h-12 bg-primary/5 text-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-[28px]">precision_manufacturing</span>
+                        </div>
+                        <div>
+                            <h4 class="font-title-lg text-primary font-bold">Manufacturing</h4>
+                            <p class="text-caption text-on-surface-variant">12 Jobs Available</p>
+                        </div>
+                    </div>
+
+                    <!-- Healthcare Card -->
+                    <div class="bg-surface-container-lowest border border-outline-variant p-lg rounded flex items-center gap-md hover:shadow-md transition-shadow cursor-pointer reveal" style="transition-delay: 100ms;" onclick="filterByCategoryTab('healthcare')">
+                        <div class="w-12 h-12 bg-primary/5 text-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-[28px]">medical_services</span>
+                        </div>
+                        <div>
+                            <h4 class="font-title-lg text-primary font-bold">Healthcare</h4>
+                            <p class="text-caption text-on-surface-variant">8 Jobs Available</p>
+                        </div>
+                    </div>
+
+                    <!-- Logistics Card -->
+                    <div class="bg-surface-container-lowest border border-outline-variant p-lg rounded flex items-center gap-md hover:shadow-md transition-shadow cursor-pointer reveal" style="transition-delay: 200ms;" onclick="filterByCategoryTab('logistics')">
+                        <div class="w-12 h-12 bg-primary/5 text-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-[28px]">local_shipping</span>
+                        </div>
+                        <div>
+                            <h4 class="font-title-lg text-primary font-bold">Logistics</h4>
+                            <p class="text-caption text-on-surface-variant">15 Jobs Available</p>
+                        </div>
+                    </div>
+
+                    <!-- Engineering Card -->
+                    <div class="bg-surface-container-lowest border border-outline-variant p-lg rounded flex items-center gap-md hover:shadow-md transition-shadow cursor-pointer reveal" style="transition-delay: 300ms;" onclick="filterByCategoryTab('engineering')">
+                        <div class="w-12 h-12 bg-primary/5 text-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-[28px]">engineering</span>
+                        </div>
+                        <div>
+                            <h4 class="font-title-lg text-primary font-bold">Engineering</h4>
+                            <p class="text-caption text-on-surface-variant">6 Jobs Available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stafex Hiring Banner -->
+        <section class="py-xl px-lg bg-surface-container-lowest">
+            <div class="max-w-container-max mx-auto">
+                <div class="bg-primary-container/20 border border-primary-container/30 rounded-xl p-lg flex flex-col md:flex-row justify-between items-center gap-lg reveal">
+                    <div class="flex items-center gap-md text-left">
+                        <div class="w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center flex-shrink-0 hidden sm:flex">
+                            <span class="material-symbols-outlined text-[32px]">campaign</span>
+                        </div>
+                        <div>
+                            <h3 class="font-headline-sm text-primary mb-xs">Stafex Corporate is Hiring!</h3>
+                            <p class="text-on-surface-variant font-body-md">We are currently looking for internal Recruiters, Account managers, and Compliance executives. Join our core team.</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="bg-primary text-on-primary px-xl py-md rounded font-label-md text-label-md uppercase tracking-wider flex items-center gap-sm flex-shrink-0 hover:opacity-90 active:scale-95 transition-all">
+                        Apply Now
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jobs of the Day Grid -->
+        <section class="py-section px-lg bg-surface">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-section reveal">
+                    <h2 class="font-headline-md text-headline-md text-primary mb-md">Jobs of the Day</h2>
+                    <p class="text-on-surface-variant font-body-md max-w-xl mx-auto">Explore immediate openings payrolled or staffed by Stafex Services across industrial centers.</p>
+                </div>
+
+                <!-- Job Categories Tab Filters -->
+                <div class="flex flex-wrap justify-center items-center gap-sm mb-xl reveal">
+                    <button onclick="filterByCategoryTab('all')" id="tab-all" class="tab-btn bg-primary text-on-primary px-lg py-sm rounded text-label-md font-label-md uppercase shadow-sm border border-primary">All Jobs</button>
+                    <button onclick="filterByCategoryTab('manufacturing')" id="tab-manufacturing" class="tab-btn bg-surface-container-lowest text-primary hover:bg-surface-container-low px-lg py-sm rounded text-label-md font-label-md uppercase border border-outline-variant">Manufacturing</button>
+                    <button onclick="filterByCategoryTab('healthcare')" id="tab-healthcare" class="tab-btn bg-surface-container-lowest text-primary hover:bg-surface-container-low px-lg py-sm rounded text-label-md font-label-md uppercase border border-outline-variant">Healthcare</button>
+                    <button onclick="filterByCategoryTab('logistics')" id="tab-logistics" class="tab-btn bg-surface-container-lowest text-primary hover:bg-surface-container-low px-lg py-sm rounded text-label-md font-label-md uppercase border border-outline-variant">Logistics</button>
+                    <button onclick="filterByCategoryTab('engineering')" id="tab-engineering" class="tab-btn bg-surface-container-lowest text-primary hover:bg-surface-container-low px-lg py-sm rounded text-label-md font-label-md uppercase border border-outline-variant">Engineering</button>
+                    <button onclick="filterByCategoryTab('tech')" id="tab-tech" class="tab-btn bg-surface-container-lowest text-primary hover:bg-surface-container-low px-lg py-sm rounded text-label-md font-label-md uppercase border border-outline-variant">IT & Office</button>
+                </div>
+
+                <!-- No Results placeholder -->
+                <div id="no-jobs-found" class="hidden text-center py-xxl bg-surface-container-lowest border border-outline-variant rounded p-lg space-y-md">
+                    <span class="material-symbols-outlined text-[64px] text-outline-variant">search_off</span>
+                    <h4 class="font-headline-sm text-primary">No Matching Positions Found</h4>
+                    <p class="text-on-surface-variant font-body-md">Try adjusting your filters, location search, or key terms to explore other staffing options.</p>
+                    <button onclick="resetFilters()" class="bg-primary text-on-primary px-lg py-sm rounded font-label-md">Clear Filters</button>
+                </div>
+
+                <!-- Jobs Cards Grid -->
+                <div id="jobs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+                    
+                    <!-- Job Card 1 -->
+                    <div class="job-card bg-surface-container-lowest p-lg rounded flex flex-col justify-between reveal" data-category="manufacturing" data-location="Pune, Maharashtra">
+                        <div class="space-y-md">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-10 h-10 bg-primary/10 text-primary rounded flex items-center justify-center font-bold font-title-lg">A</div>
+                                    <div>
+                                        <h5 class="font-title-lg text-primary font-bold leading-tight">Ashford Ind.</h5>
+                                        <p class="text-caption text-on-surface-variant flex items-center gap-xs">
+                                            <span class="material-symbols-outlined text-sm">location_on</span> Pune, Maharashtra
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="bg-secondary-container text-on-secondary-container text-caption font-label-md px-md py-xs rounded">Contract</span>
+                            </div>
+
+                            <h3 class="font-headline-sm text-primary font-bold hover:underline cursor-pointer" onclick="openApplyModal('Production Supervisor', 'Ashford Ind.')">Production Supervisor</h3>
+                            <p class="text-on-surface-variant font-body-md line-clamp-3">
+                                Supervise production line operations, ensure compliance with safety regulations, and manage shift schedules on the factory floor.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-xs pt-xs">
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Supervision</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Safety</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Lean</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center border-t border-outline-variant/30 pt-md mt-lg">
+                            <div>
+                                <span class="text-stafex-orange font-headline-sm font-bold">₹32,000</span>
+                                <span class="text-caption text-on-surface-variant">/ Month</span>
+                            </div>
+                            <button onclick="openApplyModal('Production Supervisor', 'Ashford Ind.')" class="bg-primary hover:bg-primary/95 text-on-primary px-lg py-sm rounded text-caption font-label-md uppercase tracking-wider">
+                                Quick Apply
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 2 -->
+                    <div class="job-card bg-surface-container-lowest p-lg rounded flex flex-col justify-between reveal" data-category="healthcare" data-location="Mumbai, Maharashtra" style="transition-delay: 100ms;">
+                        <div class="space-y-md">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-10 h-10 bg-stafex-orange/10 text-stafex-orange rounded flex items-center justify-center font-bold font-title-lg">P</div>
+                                    <div>
+                                        <h5 class="font-title-lg text-primary font-bold leading-tight">Percepta Health</h5>
+                                        <p class="text-caption text-on-surface-variant flex items-center gap-xs">
+                                            <span class="material-symbols-outlined text-sm">location_on</span> Mumbai, Maharashtra
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="bg-secondary-container text-on-secondary-container text-caption font-label-md px-md py-xs rounded">Payroll</span>
+                            </div>
+
+                            <h3 class="font-headline-sm text-primary font-bold hover:underline cursor-pointer" onclick="openApplyModal('Staff Nurse', 'Percepta Health')">Staff Nurse</h3>
+                            <p class="text-on-surface-variant font-body-md line-clamp-3">
+                                Provide clinical patient care, manage medical records, and collaborate with staff physicians in a modern ward setting.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-xs pt-xs">
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Nursing</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Patient Care</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">ESIC</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center border-t border-outline-variant/30 pt-md mt-lg">
+                            <div>
+                                <span class="text-stafex-orange font-headline-sm font-bold">₹28,000</span>
+                                <span class="text-caption text-on-surface-variant">/ Month</span>
+                            </div>
+                            <button onclick="openApplyModal('Staff Nurse', 'Percepta Health')" class="bg-primary hover:bg-primary/95 text-on-primary px-lg py-sm rounded text-caption font-label-md uppercase tracking-wider">
+                                Quick Apply
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 3 -->
+                    <div class="job-card bg-surface-container-lowest p-lg rounded flex flex-col justify-between reveal" data-category="logistics" data-location="Ahmedabad, Gujarat" style="transition-delay: 200ms;">
+                        <div class="space-y-md">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-10 h-10 bg-green-500/10 text-green-600 rounded flex items-center justify-center font-bold font-title-lg">E</div>
+                                    <div>
+                                        <h5 class="font-title-lg text-primary font-bold leading-tight">Exela Movers</h5>
+                                        <p class="text-caption text-on-surface-variant flex items-center gap-xs">
+                                            <span class="material-symbols-outlined text-sm">location_on</span> Ahmedabad, Gujarat
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="bg-secondary-container text-on-secondary-container text-caption font-label-md px-md py-xs rounded">NAPS</span>
+                            </div>
+
+                            <h3 class="font-headline-sm text-primary font-bold hover:underline cursor-pointer" onclick="openApplyModal('Logistics Coordinator', 'Exela Movers')">Logistics Coordinator</h3>
+                            <p class="text-on-surface-variant font-body-md line-clamp-3">
+                                Coordinate warehousing shipments, verify compliance documentation, and log supply chain metrics in Excel database.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-xs pt-xs">
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">NAPS</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Logistics</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Excel</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center border-t border-outline-variant/30 pt-md mt-lg">
+                            <div>
+                                <span class="text-stafex-orange font-headline-sm font-bold">₹24,000</span>
+                                <span class="text-caption text-on-surface-variant">/ Month</span>
+                            </div>
+                            <button onclick="openApplyModal('Logistics Coordinator', 'Exela Movers')" class="bg-primary hover:bg-primary/95 text-on-primary px-lg py-sm rounded text-caption font-label-md uppercase tracking-wider">
+                                Quick Apply
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 4 -->
+                    <div class="job-card bg-surface-container-lowest p-lg rounded flex flex-col justify-between reveal" data-category="engineering" data-location="Vadodara, Gujarat">
+                        <div class="space-y-md">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-10 h-10 bg-purple-500/10 text-purple-600 rounded flex items-center justify-center font-bold font-title-lg">T</div>
+                                    <div>
+                                        <h5 class="font-title-lg text-primary font-bold leading-tight">Tesla Engg</h5>
+                                        <p class="text-caption text-on-surface-variant flex items-center gap-xs">
+                                            <span class="material-symbols-outlined text-sm">location_on</span> Vadodara, Gujarat
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="bg-secondary-container text-on-secondary-container text-caption font-label-md px-md py-xs rounded">Contract</span>
+                            </div>
+
+                            <h3 class="font-headline-sm text-primary font-bold hover:underline cursor-pointer" onclick="openApplyModal('Maintenance Technician', 'Tesla Engg')">Maintenance Technician</h3>
+                            <p class="text-on-surface-variant font-body-md line-clamp-3">
+                                Perform preventive maintenance on robotic assemblies, troubleshoot machinery, and log service tickets for industrial assets.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-xs pt-xs">
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Maintenance</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">ITI</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Robotics</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center border-t border-outline-variant/30 pt-md mt-lg">
+                            <div>
+                                <span class="text-stafex-orange font-headline-sm font-bold">₹26,000</span>
+                                <span class="text-caption text-on-surface-variant">/ Month</span>
+                            </div>
+                            <button onclick="openApplyModal('Maintenance Technician', 'Tesla Engg')" class="bg-primary hover:bg-primary/95 text-on-primary px-lg py-sm rounded text-caption font-label-md uppercase tracking-wider">
+                                Quick Apply
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 5 -->
+                    <div class="job-card bg-surface-container-lowest p-lg rounded flex flex-col justify-between reveal" data-category="tech" data-location="Pune, Maharashtra" style="transition-delay: 100ms;">
+                        <div class="space-y-md">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-10 h-10 bg-indigo-500/10 text-indigo-600 rounded flex items-center justify-center font-bold font-title-lg">B</div>
+                                    <div>
+                                        <h5 class="font-title-lg text-primary font-bold leading-tight">Bing Search</h5>
+                                        <p class="text-caption text-on-surface-variant flex items-center gap-xs">
+                                            <span class="material-symbols-outlined text-sm">location_on</span> Pune, Maharashtra
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="bg-secondary-container text-on-secondary-container text-caption font-label-md px-md py-xs rounded">Full Time</span>
+                            </div>
+
+                            <h3 class="font-headline-sm text-primary font-bold hover:underline cursor-pointer" onclick="openApplyModal('Junior Software Developer', 'Bing Search')">Junior Software Developer</h3>
+                            <p class="text-on-surface-variant font-body-md line-clamp-3">
+                                Develop web interfaces using modern frameworks, collaborate with UI/UX designers, and write unit tests on standard codebases.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-xs pt-xs">
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">React</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">JavaScript</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Web Dev</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center border-t border-outline-variant/30 pt-md mt-lg">
+                            <div>
+                                <span class="text-stafex-orange font-headline-sm font-bold">₹45,000</span>
+                                <span class="text-caption text-on-surface-variant">/ Month</span>
+                            </div>
+                            <button onclick="openApplyModal('Junior Software Developer', 'Bing Search')" class="bg-primary hover:bg-primary/95 text-on-primary px-lg py-sm rounded text-caption font-label-md uppercase tracking-wider">
+                                Quick Apply
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 6 -->
+                    <div class="job-card bg-surface-container-lowest p-lg rounded flex flex-col justify-between reveal" data-category="tech" data-location="Mumbai, Maharashtra" style="transition-delay: 200ms;">
+                        <div class="space-y-md">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-10 h-10 bg-yellow-500/10 text-yellow-600 rounded flex items-center justify-center font-bold font-title-lg">A</div>
+                                    <div>
+                                        <h5 class="font-title-lg text-primary font-bold leading-tight">Amazon Logistics</h5>
+                                        <p class="text-caption text-on-surface-variant flex items-center gap-xs">
+                                            <span class="material-symbols-outlined text-sm">location_on</span> Mumbai, Maharashtra
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="bg-secondary-container text-on-secondary-container text-caption font-label-md px-md py-xs rounded">Payroll</span>
+                            </div>
+
+                            <h3 class="font-headline-sm text-primary font-bold hover:underline cursor-pointer" onclick="openApplyModal('HR Recruiter', 'Amazon Logistics')">HR Recruiter</h3>
+                            <p class="text-on-surface-variant font-body-md line-clamp-3">
+                                Manage end-to-end recruitment lifecycle, screen candidate profiles, and coordinate onboarding schedules.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-xs pt-xs">
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Recruiting</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">HR</span>
+                                <span class="bg-surface text-on-surface-variant text-caption px-sm py-xs rounded">Sourcing</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center border-t border-outline-variant/30 pt-md mt-lg">
+                            <div>
+                                <span class="text-stafex-orange font-headline-sm font-bold">₹30,000</span>
+                                <span class="text-caption text-on-surface-variant">/ Month</span>
+                            </div>
+                            <button onclick="openApplyModal('HR Recruiter', 'Amazon Logistics')" class="bg-primary hover:bg-primary/95 text-on-primary px-lg py-sm rounded text-caption font-label-md uppercase tracking-wider">
+                                Quick Apply
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Quick Apply Modal -->
+    <div id="apply-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-surface-container-lowest border border-outline-variant p-xl rounded shadow-2xl max-w-lg w-full mx-md transform scale-95 transition-transform duration-300 ease-out space-y-lg relative">
+            <button id="close-apply-modal" class="absolute top-md right-md text-on-surface-variant hover:text-primary focus:outline-none" aria-label="Close form">
+                <span class="material-symbols-outlined text-[28px]">close</span>
+            </button>
+
+            <div class="space-y-xs">
+                <span class="text-stafex-orange font-label-md text-label-md uppercase tracking-widest block">Job Application</span>
+                <h3 class="font-headline-sm text-primary font-bold" id="modal-job-title">Apply for Position</h3>
+                <p class="font-body-md text-on-surface-variant" id="modal-company-name">Company Name</p>
+            </div>
+
+            <form id="apply-form" class="space-y-md">
+                <!-- Hidden inputs to track job -->
+                <input type="hidden" id="applied-job-title" name="job_title"/>
+                <input type="hidden" id="applied-company-name" name="company_name"/>
+
+                <!-- Name -->
+                <div>
+                    <label for="apply-name" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Full Name *</label>
+                    <input type="text" id="apply-name" required class="w-full search-input p-md rounded font-body-md" placeholder="Enter your full name"/>
+                </div>
+
+                <!-- Email & Phone -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+                    <div>
+                        <label for="apply-email" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Email *</label>
+                        <input type="email" id="apply-email" required class="w-full search-input p-md rounded font-body-md" placeholder="name@domain.com"/>
+                    </div>
+                    <div>
+                        <label for="apply-phone" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Phone Number *</label>
+                        <input type="tel" id="apply-phone" required class="w-full search-input p-md rounded font-body-md" placeholder="Enter 10-digit number"/>
+                    </div>
+                </div>
+
+                <!-- Resume Link -->
+                <div>
+                    <label for="apply-resume" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Resume / CV Link *</label>
+                    <input type="url" id="apply-resume" required class="w-full search-input p-md rounded font-body-md" placeholder="Drive link, LinkedIn PDF link, or similar URL"/>
+                </div>
+
+                <!-- Cover letter message -->
+                <div>
+                    <label for="apply-message" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Brief Message (Optional)</label>
+                    <textarea id="apply-message" rows="3" class="w-full search-input p-md rounded font-body-md" placeholder="Why are you a good fit for this role?"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-stafex-orange hover:bg-stafex-orange/95 text-on-primary font-title-lg text-title-lg py-md rounded transition-all shadow-md flex items-center justify-center gap-xs">
+                    <span>Submit Application</span>
+                    <span class="material-symbols-outlined">send</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Application Success Modal -->
+    <div id="app-success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-surface-container-lowest border border-outline-variant p-xl rounded shadow-2xl max-w-md w-full mx-md text-center transform scale-95 transition-transform duration-300 ease-out space-y-lg">
+            <div class="w-16 h-16 bg-primary/5 text-primary rounded-full flex items-center justify-center mx-auto">
+                <span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </div>
+            <div class="space-y-md">
+                <h3 class="font-headline-sm text-primary">Application Submitted</h3>
+                <p class="font-body-md text-on-surface-variant">
+                    Thank you! Your job application has been successfully sent to the Stafex recruiting desk. A recruiter will review your profile and contact you if your experience aligns.
+                </p>
+            </div>
+            <button id="close-success-modal" class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm rounded hover:opacity-90 transition-all uppercase tracking-wider">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-jobbox-border py-16">
+        <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+            <!-- Brand Info Column -->
+            <div class="lg:col-span-2 space-y-5">
+                <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                        <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    </svg>
+                    <span>Stafex<span class="text-[#FF6B00]">Services</span></span>
+                </a>
+                <p class="text-jobbox-muted text-sm leading-relaxed max-w-sm">
+                    Stafex Services is a workforce solutions partner delivering reliable, scalable, and compliance-driven manpower services across India.
+                </p>
+                <!-- Social Icons -->
+                <div class="flex gap-4 text-jobbox-muted">
+                    <a href="https://www.instagram.com/stafexservice?igsh=ZnFoa2R1aTFxM2R4" target="_blank" class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5 text-sm font-semibold">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        <span>Follow on Instagram</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">Quick Links</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors" href="index.html">Home</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="about.html">About Us</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="services.html">Our Services</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            
+            <!-- Candidates Column -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">For Candidates</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors" href="careers.html">Find a Job</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="careers.html">Featured Jobs</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="contact.html">Submit Resume</a>
+                </div>
+            </div>
+            
+            <!-- Contact Us Column -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">Get In Touch</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5" href="mailto:Contact@stafex.in">
+                        <span class="material-symbols-outlined text-[16px]">mail</span>
+                        Contact@stafex.in
+                    </a>
+                    <a class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5" href="tel:7757957575">
+                        <span class="material-symbols-outlined text-[16px]">call</span>
+                        7757957575
+                    </a>
+                    <p class="flex items-start gap-1.5">
+                        <span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+                        <span>Corporate HQ: Mumbai,<br/>Maharashtra, India</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1280px] mx-auto px-6 mt-12 pt-8 border-t border-jobbox-border">
+            <p class="text-jobbox-muted text-xs text-center">
+                © 2026 Stafex Services. People. Potential. Performance. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for scroll animations
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Floating Nav logic
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-sm', 'shadow-md');
+                header.classList.remove('py-md', 'shadow-sm');
+            } else {
+                header.classList.add('py-md', 'shadow-sm');
+                header.classList.remove('py-sm', 'shadow-md');
+            }
+        });
+
+        // Mobile drawer toggles
+        const menuToggleBtn = document.getElementById('mobile-menu-toggle');
+        const drawerCloseBtn = document.getElementById('mobile-drawer-close');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileDrawerContent = document.getElementById('mobile-drawer-content');
+
+        function openDrawer() {
+            mobileDrawer.classList.remove('pointer-events-none', 'opacity-0');
+            mobileDrawer.classList.add('opacity-100');
+            mobileDrawerContent.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.add('pointer-events-none', 'opacity-0');
+            mobileDrawer.classList.remove('opacity-100');
+            mobileDrawerContent.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggleBtn && drawerCloseBtn && mobileDrawer && mobileDrawerContent) {
+            menuToggleBtn.addEventListener('click', openDrawer);
+            drawerCloseBtn.addEventListener('click', closeDrawer);
+            mobileDrawer.addEventListener('click', (e) => {
+                if (e.target === mobileDrawer) {
+                    closeDrawer();
+                }
+            });
+        }
+
+        // Job Filter State Variables
+        let currentTabCategory = 'all';
+
+        // Set Search terms and execute search
+        function setSearchQuery(industry, location, keywords) {
+            document.getElementById('search-industry').value = industry;
+            document.getElementById('search-location').value = location;
+            document.getElementById('search-keywords').value = keywords;
+            filterJobs();
+        }
+
+        // Filter Action
+        function filterJobs() {
+            const selectedIndustry = document.getElementById('search-industry').value.toLowerCase();
+            const locationInput = document.getElementById('search-location').value.trim().toLowerCase();
+            const keywordsInput = document.getElementById('search-keywords').value.trim().toLowerCase();
+            
+            const jobCards = document.querySelectorAll('.job-card');
+            let matchCount = 0;
+
+            jobCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category').toLowerCase();
+                const cardLocation = card.getAttribute('data-location').toLowerCase();
+                const cardTitle = card.querySelector('h3').textContent.toLowerCase();
+                const cardCompany = card.querySelector('h5').textContent.toLowerCase();
+                const cardDesc = card.querySelector('p').textContent.toLowerCase();
+                
+                // Check Tab matching
+                const matchesTab = (currentTabCategory === 'all' || cardCategory === currentTabCategory);
+                
+                // Check Search inputs matching
+                const matchesIndustry = (!selectedIndustry || cardCategory === selectedIndustry);
+                const matchesLocation = (!locationInput || cardLocation.includes(locationInput));
+                const matchesKeywords = (!keywordsInput || 
+                                         cardTitle.includes(keywordsInput) || 
+                                         cardCompany.includes(keywordsInput) || 
+                                         cardDesc.includes(keywordsInput));
+
+                if (matchesTab && matchesIndustry && matchesLocation && matchesKeywords) {
+                    card.style.display = 'flex';
+                    // Retrigger transition
+                    setTimeout(() => {
+                        card.classList.add('active');
+                    }, 50);
+                    matchCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Display placeholder if no matches found
+            const noResultsPlaceholder = document.getElementById('no-jobs-found');
+            if (matchCount === 0) {
+                noResultsPlaceholder.classList.remove('hidden');
+            } else {
+                noResultsPlaceholder.classList.add('hidden');
+            }
+        }
+
+        // Click Category Tab
+        function filterByCategoryTab(category) {
+            currentTabCategory = category;
+
+            // Highlight active button state
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                if (btn.id === `tab-${category}`) {
+                    btn.classList.remove('bg-surface-container-lowest', 'text-primary', 'hover:bg-surface-container-low');
+                    btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+                } else {
+                    btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+                    btn.classList.add('bg-surface-container-lowest', 'text-primary', 'hover:bg-surface-container-low');
+                }
+            });
+
+            filterJobs();
+        }
+
+        // Reset Filter inputs
+        function resetFilters() {
+            setSearchQuery('', '', '');
+            filterByCategoryTab('all');
+        }
+
+        // Bind Search Button Click
+        document.getElementById('search-btn').addEventListener('click', filterJobs);
+
+        // Apply Modal Interactivity
+        const applyModal = document.getElementById('apply-modal');
+        const applyModalContainer = applyModal.querySelector('div');
+        const closeApplyModalBtn = document.getElementById('close-apply-modal');
+        const applyForm = document.getElementById('apply-form');
+        const appSuccessModal = document.getElementById('app-success-modal');
+        const appSuccessModalContainer = appSuccessModal.querySelector('div');
+        const closeSuccessModalBtn = document.getElementById('close-success-modal');
+
+        function openApplyModal(jobTitle, companyName) {
+            document.getElementById('modal-job-title').textContent = `Apply for: ${jobTitle}`;
+            document.getElementById('modal-company-name').textContent = companyName;
+            
+            document.getElementById('applied-job-title').value = jobTitle;
+            document.getElementById('applied-company-name').value = companyName;
+
+            applyModal.classList.remove('pointer-events-none', 'opacity-0');
+            applyModal.classList.add('opacity-100');
+            applyModalContainer.classList.remove('scale-95');
+            applyModalContainer.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeApplyModal() {
+            applyModal.classList.add('pointer-events-none', 'opacity-0');
+            applyModal.classList.remove('opacity-100');
+            applyModalContainer.classList.remove('scale-100');
+            applyModalContainer.classList.add('scale-95');
+            document.body.style.overflow = '';
+            applyForm.reset();
+        }
+
+        if (closeApplyModalBtn && applyModal && applyForm && appSuccessModal) {
+            closeApplyModalBtn.addEventListener('click', closeApplyModal);
+            
+            applyModal.addEventListener('click', (e) => {
+                if (e.target === applyModal) {
+                    closeApplyModal();
+                }
+            });
+
+            // Form Submit Interception
+            applyForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('apply-name').value.trim();
+                const email = document.getElementById('apply-email').value.trim();
+                const phone = document.getElementById('apply-phone').value.trim();
+                const resume = document.getElementById('apply-resume').value.trim();
+
+                if (name && email && phone && resume) {
+                    // Close apply modal first
+                    closeApplyModal();
+                    
+                    // Show success modal
+                    setTimeout(() => {
+                        appSuccessModal.classList.remove('pointer-events-none', 'opacity-0');
+                        appSuccessModal.classList.add('opacity-100');
+                        appSuccessModalContainer.classList.remove('scale-95');
+                        appSuccessModalContainer.classList.add('scale-100');
+                        document.body.style.overflow = 'hidden';
+                    }, 200);
+                }
+            });
+
+            closeSuccessModalBtn.addEventListener('click', () => {
+                appSuccessModal.classList.add('pointer-events-none', 'opacity-0');
+                appSuccessModal.classList.remove('opacity-100');
+                appSuccessModalContainer.classList.remove('scale-100');
+                appSuccessModalContainer.classList.add('scale-95');
+                document.body.style.overflow = '';
+            });
+
+            appSuccessModal.addEventListener('click', (e) => {
+                if (e.target === appSuccessModal) {
+                    closeSuccessModalBtn.click();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

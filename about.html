@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About Us | Stafex Services</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              // Stafex Core Design System Colors
+              "primary": "#0B3D91",          // Navy Blue (rebranded from #002869)
+              "on-primary": "#ffffff",
+              "primary-container": "#0B3D91",
+              "on-primary-container": "#8dadff",
+              "secondary": "#515f74",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#d5e3fc",
+              "on-secondary-container": "#57657a",
+              "surface": "#f7f9fb",
+              "on-surface": "#191c1e",
+              "surface-variant": "#e0e3e5",
+              "on-surface-variant": "#434652",
+              "background": "#f7f9fb",
+              "on-background": "#191c1e",
+              "outline": "#747783",
+              "outline-variant": "#c4c6d3",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "surface-container": "#eceef0",
+              "surface-container-high": "#e6e8ea",
+              "surface-container-highest": "#e0e3e5",
+              "inverse-surface": "#2d3133",
+              "inverse-on-surface": "#eff1f3",
+              "error": "#ba1a1a",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+
+              // Rebranded JobBox / Stafex Header & Footer Colors
+              "jobbox-blue": "#0B3D91",      // Navy Blue
+              "jobbox-dark": "#0F172A",      // Dark Grey / Slate
+              "jobbox-muted": "#475569",     // Slate Muted Grey
+              "jobbox-light": "#F8FAFC",     // Light blue-grey background
+              "jobbox-border": "#E2E8F0",    // Soft border
+              "jobbox-green": "#10b981",
+              "jobbox-green-light": "#e6fcf5",
+              "stafex-orange": "#FF6B00",    // Orange accent for CTAs
+            },
+            borderRadius: {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem",
+              "custom-1": "30px",
+              "custom-2": "40px"
+            },
+            spacing: {
+              "xs": "4px",
+              "sm": "8px",
+              "base": "8px",
+              "md": "16px",
+              "lg": "24px",
+              "xl": "32px",
+              "xxl": "48px",
+              "section": "80px",
+              "gutter": "24px",
+              "container-max": "1280px"
+            },
+            fontFamily: {
+              "body-lg": ["Inter"],
+              "caption": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-sm": ["Inter"],
+              "display-lg-mobile": ["Inter"],
+              "display-lg": ["Inter"],
+              "label-md": ["Inter"],
+              "title-lg": ["Inter"]
+            },
+            fontSize: {
+              "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+              "caption": ["12px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "400"}],
+              "headline-md": ["30px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+              "headline-sm": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+              "title-lg": ["20px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 40, 105, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .btn-hover-effect {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .btn-hover-effect:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden pt-[76px]">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white fixed top-0 w-full z-50 border-b border-jobbox-border transition-all duration-300 py-4" id="main-header">
+        <div class="flex justify-between items-center px-6 max-w-[1280px] mx-auto w-full">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                <!-- SVG Icon for Stafex -->
+                <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                    <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                    <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    <circle cx="16" cy="16" r="2" fill="white"/>
+                </svg>
+                <span class="tracking-tight">Stafex<span class="text-[#FF6B00]">Services</span></span>
+            </a>
+            
+            <!-- Center Navigation Links -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="index.html">Home</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="services.html">Our Services</a>
+                <a class="font-semibold text-jobbox-blue py-2 text-[15px]" href="about.html">About Us</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="careers.html">Careers</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="contact.html">Contact Us</a>
+            </div>
+            
+            <!-- Right Actions (Phone & CTA) -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="tel:7757957575" class="flex items-center gap-1.5 font-bold text-jobbox-dark hover:text-jobbox-blue transition-colors text-[15px]">
+                    <span class="material-symbols-outlined text-[20px] text-[#FF6B00]">call</span>
+                    7757957575
+                </a>
+                <a href="contact.html" class="bg-stafex-orange text-white font-bold px-6 py-2.5 rounded-lg hover:bg-opacity-90 active:scale-95 transition-all text-[15px] btn-hover-effect">
+                    Let's Talk Staffing
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-toggle" class="text-jobbox-dark focus:outline-none" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-[32px]">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+        <div id="mobile-drawer-content" class="absolute top-0 right-0 h-full w-80 bg-white shadow-2xl p-6 flex flex-col space-y-6 transform translate-x-full transition-transform duration-300 ease-out">
+            <div class="flex justify-between items-center border-b border-jobbox-border pb-4">
+                <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                        <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    </svg>
+                    <span>Stafex<span class="text-[#FF6B00]">Services</span></span>
+                </a>
+                <button id="mobile-drawer-close" class="text-jobbox-muted hover:text-jobbox-dark focus:outline-none" aria-label="Close Menu">
+                    <span class="material-symbols-outlined text-[28px]">close</span>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4 pt-4 overflow-y-auto flex-grow no-scrollbar">
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="index.html">Home</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="services.html">Our Services</a>
+                <a class="font-semibold text-jobbox-blue text-lg" href="about.html">About Us</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="careers.html">Careers</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="contact.html">Contact Us</a>
+            </div>
+            <div class="pt-6 border-t border-jobbox-border flex flex-col gap-3">
+                <a href="tel:7757957575" class="flex items-center justify-center gap-1.5 font-bold text-jobbox-dark py-2.5 rounded-lg border border-jobbox-border hover:bg-jobbox-light transition-all">
+                    <span class="material-symbols-outlined text-[20px] text-[#FF6B00]">call</span>
+                    7757957575
+                </a>
+                <a href="contact.html" class="block text-center bg-stafex-orange text-white font-bold py-2.5 rounded-lg hover:bg-opacity-95 active:scale-95 transition-all">
+                    Let's Talk Staffing
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section: Our Story -->
+        <section class="relative bg-cover bg-center py-section px-lg overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80');">
+            <!-- Dark Navy Overlay -->
+            <div class="absolute inset-0 bg-[#0B3D91]/90 pointer-events-none"></div>
+            <div class="relative z-10 max-w-container-max mx-auto grid md:grid-cols-2 gap-xxl items-center">
+                <div class="space-y-lg reveal active">
+                    <div class="inline-flex items-center px-md py-xs bg-white/10 text-on-primary rounded-full text-caption font-label-md uppercase">
+                        Established 2021
+                    </div>
+                    <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary">Our Story</h1>
+                    <p class="font-body-lg text-body-lg text-on-primary/90 max-w-xl">
+                        Founded in 2021 with a vision to simplify workforce management through reliability and compliance, Stafex Services has rapidly emerged as a leader in industrial and corporate staffing solutions.
+                    </p>
+                    <div class="grid grid-cols-2 gap-lg pt-md">
+                        <div class="border-l-4 border-white/30 pl-md">
+                            <div class="text-display-lg-mobile font-display-lg text-on-primary">68+</div>
+                            <div class="font-label-md text-label-md uppercase text-on-primary/80">Active Clients</div>
+                        </div>
+                        <div class="border-l-4 border-white/30 pl-md">
+                            <div class="text-display-lg-mobile font-display-lg text-on-primary">120k+</div>
+                            <div class="font-label-md text-label-md uppercase text-on-primary/80">Associates</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group reveal active" style="transition-delay: 150ms;">
+                    <div class="absolute -inset-4 bg-white/5 rounded transition-all group-hover:bg-white/10"></div>
+                    <img class="relative w-full h-[320px] md:h-[500px] object-cover rounded shadow-lg border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPo1b1JcxGT5uUcISZKajFo2-xJuFmMxJEPghL2g_tHsFlcZJpBXKtkS_-m3fZ6OrXT4W4CdpMmT0vMVjbhVZ0Ap2Wbxw7tiPpUBmSRMcgsXD101ohR8eoGdqkfsExbHac-Bo_BlvmpT4FUmZpQd6Bk7QZrnMArNfzMnIyu8_vOUDdLjW3B-yvZmDB7SPAdkVEnAskobrHveLmHOQx1n38jHAFXxarYU5WZ4q84x3DYPc-ZAdqhdmV9-osqNK9mArnyqN7vJ3A5w"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision: Bento Grid -->
+        <section class="py-section px-lg bg-surface">
+            <div class="max-w-container-max mx-auto">
+                <div class="bento-grid">
+                    <!-- Mission -->
+                    <div class="col-span-12 md:col-span-7 bg-surface-container-lowest p-xxl rounded border border-outline-variant flex flex-col justify-between hover:shadow-md transition-shadow reveal">
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-4xl mb-lg">target</span>
+                            <h2 class="font-headline-md text-headline-md text-primary mb-md">Our Mission</h2>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant">
+                                To empower businesses with reliable, compliant, and scalable workforce solutions that drive operational excellence. We bridge the gap between human potential and organizational performance.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Stats / Image Small -->
+                    <div class="col-span-12 md:col-span-5 relative overflow-hidden rounded border border-outline-variant h-[300px] md:h-auto reveal" style="transition-delay: 150ms;">
+                        <div class="absolute inset-0 bg-primary/20 z-10"></div>
+                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtua3JYOvwJ5gG7XAzXeBG14KOm78ZWo251tEWZQH8YEqz1YxMYvyuJbcVvbF9MAvVeSlPH1fh-cuTNBJS9nfYbG7IgzxFmwLtgk023rRtdLMuAi6CE71Sn52mtDoSi3DZzHVWsP_rptwskJJGeUKTrfHZAZLOjdLad6kLODthYBIOqeHmsY6CpPCF1A8tPXUmFRiOwXKmq987HVfgunVTz1MnrHGnn3lgYdlFRcW0wkGnEQfejPtgv-a6awcfDTJTgB2GvqEctA"/>
+                    </div>
+                    <!-- Vision -->
+                    <div class="col-span-12 md:col-span-5 bg-primary text-on-primary p-xxl rounded flex flex-col justify-between hover:opacity-95 transition-opacity reveal" style="transition-delay: 100ms;">
+                        <div>
+                            <span class="material-symbols-outlined text-on-primary-container text-4xl mb-lg">visibility</span>
+                            <h2 class="font-headline-md text-headline-md mb-md text-on-primary">Our Vision</h2>
+                            <p class="font-body-md text-body-md opacity-90">
+                                To redefine workforce solutions through innovation, integrity, and excellence across India, becoming the most trusted partner for talent and enterprise alike.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Operational Reach -->
+                    <div class="col-span-12 md:col-span-7 bg-surface-container-lowest p-xxl rounded border border-outline-variant flex flex-col sm:flex-row items-center gap-xl hover:shadow-md transition-shadow reveal" style="transition-delay: 200ms;">
+                        <div class="flex-1 w-full text-left">
+                            <h2 class="font-headline-sm text-headline-sm text-primary mb-sm">Operational Reach</h2>
+                            <p class="font-body-md text-body-md text-on-surface-variant mb-lg">
+                                Strategically positioned to serve the industrial heartlands of Western India with dedicated support hubs.
+                            </p>
+                            <div class="flex gap-md">
+                                <div class="px-md py-sm bg-surface-container rounded border border-outline-variant font-label-md text-primary">Maharashtra</div>
+                                <div class="px-md py-sm bg-surface-container rounded border border-outline-variant font-label-md text-primary">Gujarat</div>
+                            </div>
+                        </div>
+                        <div class="hidden sm:block w-32 h-32 opacity-10 flex-shrink-0">
+                            <span class="material-symbols-outlined text-[120px]">public</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values -->
+        <section class="py-section px-lg">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-xxl reveal">
+                    <h2 class="font-display-lg-mobile md:font-display-lg text-primary mb-sm">Core Values</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">The pillars that define every interaction at Stafex.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-lg">
+                    <!-- People -->
+                    <div class="p-xl bg-surface-container-low rounded border border-outline-variant text-center group hover:bg-primary transition-colors duration-300 reveal">
+                        <div class="w-16 h-16 bg-primary group-hover:bg-on-primary rounded-full flex items-center justify-center mx-auto mb-lg transition-colors">
+                            <span class="material-symbols-outlined text-on-primary group-hover:text-primary text-3xl">groups</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-primary group-hover:text-on-primary mb-md">People</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-primary/80">
+                            Our greatest asset. We invest in the growth and well-being of every associate and team member.
+                        </p>
+                    </div>
+                    <!-- Potential -->
+                    <div class="p-xl bg-surface-container-low rounded border border-outline-variant text-center group hover:bg-primary transition-colors duration-300 reveal" style="transition-delay: 150ms;">
+                        <div class="w-16 h-16 bg-primary group-hover:bg-on-primary rounded-full flex items-center justify-center mx-auto mb-lg transition-colors">
+                            <span class="material-symbols-outlined text-on-primary group-hover:text-primary text-3xl">trending_up</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-primary group-hover:text-on-primary mb-md">Potential</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-primary/80">
+                            Unlocking opportunities for individuals and businesses to scale beyond their current horizons.
+                        </p>
+                    </div>
+                    <!-- Performance -->
+                    <div class="p-xl bg-surface-container-low rounded border border-outline-variant text-center group hover:bg-primary transition-colors duration-300 reveal" style="transition-delay: 300ms;">
+                        <div class="w-16 h-16 bg-primary group-hover:bg-on-primary rounded-full flex items-center justify-center mx-auto mb-lg transition-colors">
+                            <span class="material-symbols-outlined text-on-primary group-hover:text-primary text-3xl">verified</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-primary group-hover:text-on-primary mb-md">Performance</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-primary/80">
+                            Driven by results and precision, ensuring compliance and operational excellence in every project.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership -->
+        <section class="py-section px-lg bg-surface-container-lowest">
+            <div class="max-w-container-max mx-auto">
+                <div class="flex flex-col md:flex-row gap-xxl items-center">
+                    <div class="w-full md:w-1/3 reveal">
+                        <img class="w-full aspect-[4/5] object-cover rounded shadow-lg grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0pM7AdlNY1jPnFjIzjiC1la5JVklbWWn9a72dEM2CCI3p8S7ARy_ltZ7u6OF6dCqXgSwKkvcC-Gb85YB_EukL3PpShkeOYtIwWDRBE4VitXg4G0MolglvNU-3C0JGhwEvpZlYNN7X4WHAcTGhH7Vy5O2nwkCBnw3Fr5topQ0dHrhPJ2hlVHUREo0HXYITp_Kn3AkwonslCeIcATeHs8RXVAEGeC9WyUMcj7aHsTeSo_432umVbNcvsXlQEo9nXoRZ9-6yeProzQ"/>
+                    </div>
+                    <div class="w-full md:w-2/3 space-y-lg reveal" style="transition-delay: 150ms;">
+                        <div class="space-y-sm">
+                            <h2 class="font-display-lg text-primary">Leadership</h2>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface">Prasad Bokade</h3>
+                            <p class="font-label-md text-label-md text-primary tracking-widest uppercase">Founder &amp; Managing Director</p>
+                        </div>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant italic">
+                            "Our journey since 2021 has been defined by a relentless commitment to our clients and the associates who form the backbone of Indian industry. We don't just provide staff; we build the infrastructure for performance."
+                        </p>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            Under Prasad's visionary leadership, Stafex Services has pioneered a compliance-first approach to workforce management, ensuring that every associate is empowered and every client is protected. His focus on "People, Potential, and Performance" remains the North Star of our operations.
+                        </p>
+                        <div class="flex gap-md pt-md">
+                            <a class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+                                <span class="material-symbols-outlined">link</span>
+                            </a>
+                            <a class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="mailto:Contact@stafex.in">
+                                <span class="material-symbols-outlined">mail</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-section px-lg bg-primary text-on-primary relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-on-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div class="max-w-container-max mx-auto text-center relative z-10 reveal">
+                <h2 class="font-display-lg-mobile md:font-display-lg mb-lg text-on-primary">Ready to Scale Your Performance?</h2>
+                <p class="font-body-lg text-body-lg mb-xl opacity-90 max-w-2xl mx-auto">
+                    Join over 68 clients who trust Stafex Services for reliable, compliant, and scalable workforce solutions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-md justify-center">
+                    <a href="contact.html" class="px-xxl py-md bg-stafex-orange text-on-primary font-title-lg rounded text-center btn-hover-effect shadow-lg">
+                        Post a Job
+                    </a>
+                    <a href="contact.html" class="px-xxl py-md border-2 border-on-primary text-on-primary font-title-lg rounded text-center hover:bg-on-primary hover:text-primary transition-all">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-jobbox-border py-16">
+        <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+            <!-- Brand Info Column -->
+            <div class="lg:col-span-2 space-y-5">
+                <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                        <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    </svg>
+                    <span>Stafex<span class="text-[#FF6B00]">Services</span></span>
+                </a>
+                <p class="text-jobbox-muted text-sm leading-relaxed max-w-sm">
+                    Stafex Services is a workforce solutions partner delivering reliable, scalable, and compliance-driven manpower services across India.
+                </p>
+                <!-- Social Icons -->
+                <div class="flex gap-4 text-jobbox-muted">
+                    <a href="https://www.instagram.com/stafexservice?igsh=ZnFoa2R1aTFxM2R4" target="_blank" class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5 text-sm font-semibold">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        <span>Follow on Instagram</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">Quick Links</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors" href="index.html">Home</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="about.html">About Us</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="services.html">Our Services</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            
+            <!-- Candidates Column -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">For Candidates</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors" href="careers.html">Find a Job</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="careers.html">Featured Jobs</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="contact.html">Submit Resume</a>
+                </div>
+            </div>
+            
+            <!-- Contact Us Column -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">Get In Touch</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5" href="mailto:Contact@stafex.in">
+                        <span class="material-symbols-outlined text-[16px]">mail</span>
+                        Contact@stafex.in
+                    </a>
+                    <a class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5" href="tel:7757957575">
+                        <span class="material-symbols-outlined text-[16px]">call</span>
+                        7757957575
+                    </a>
+                    <p class="flex items-start gap-1.5">
+                        <span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+                        <span>Corporate HQ: Mumbai,<br/>Maharashtra, India</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1280px] mx-auto px-6 mt-12 pt-8 border-t border-jobbox-border">
+            <p class="text-jobbox-muted text-xs text-center">
+                © 2026 Stafex Services. People. Potential. Performance. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for scroll animations
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Floating Nav logic
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-sm', 'shadow-md');
+                header.classList.remove('py-md', 'shadow-sm');
+            } else {
+                header.classList.add('py-md', 'shadow-sm');
+                header.classList.remove('py-sm', 'shadow-md');
+            }
+        });
+
+        // Mobile drawer toggles
+        const menuToggleBtn = document.getElementById('mobile-menu-toggle');
+        const drawerCloseBtn = document.getElementById('mobile-drawer-close');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileDrawerContent = document.getElementById('mobile-drawer-content');
+
+        function openDrawer() {
+            mobileDrawer.classList.remove('pointer-events-none', 'opacity-0');
+            mobileDrawer.classList.add('opacity-100');
+            mobileDrawerContent.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.add('pointer-events-none', 'opacity-0');
+            mobileDrawer.classList.remove('opacity-100');
+            mobileDrawerContent.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggleBtn && drawerCloseBtn && mobileDrawer && mobileDrawerContent) {
+            menuToggleBtn.addEventListener('click', openDrawer);
+            drawerCloseBtn.addEventListener('click', closeDrawer);
+            mobileDrawer.addEventListener('click', (e) => {
+                if (e.target === mobileDrawer) {
+                    closeDrawer();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

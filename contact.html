@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contact Us | Stafex Services - Let's Talk Staffing</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              // Stafex Core Design System Colors
+              "primary": "#0B3D91",          // Navy Blue (rebranded from #002869)
+              "on-primary": "#ffffff",
+              "primary-container": "#0B3D91",
+              "on-primary-container": "#8dadff",
+              "secondary": "#515f74",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#d5e3fc",
+              "on-secondary-container": "#57657a",
+              "surface": "#f7f9fb",
+              "on-surface": "#191c1e",
+              "surface-variant": "#e0e3e5",
+              "on-surface-variant": "#434652",
+              "background": "#f7f9fb",
+              "on-background": "#191c1e",
+              "outline": "#747783",
+              "outline-variant": "#c4c6d3",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "surface-container": "#eceef0",
+              "surface-container-high": "#e6e8ea",
+              "surface-container-highest": "#e0e3e5",
+              "inverse-surface": "#2d3133",
+              "inverse-on-surface": "#eff1f3",
+              "error": "#ba1a1a",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+
+              // Rebranded JobBox / Stafex Header & Footer Colors
+              "jobbox-blue": "#0B3D91",      // Navy Blue
+              "jobbox-dark": "#0F172A",      // Dark Grey / Slate
+              "jobbox-muted": "#475569",     // Slate Muted Grey
+              "jobbox-light": "#F8FAFC",     // Light blue-grey background
+              "jobbox-border": "#E2E8F0",    // Soft border
+              "jobbox-green": "#10b981",
+              "jobbox-green-light": "#e6fcf5",
+              "stafex-orange": "#FF6B00",    // Orange accent for CTAs
+            },
+            borderRadius: {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem",
+              "custom-1": "30px",
+              "custom-2": "40px"
+            },
+            spacing: {
+              "xs": "4px",
+              "sm": "8px",
+              "base": "8px",
+              "md": "16px",
+              "lg": "24px",
+              "xl": "32px",
+              "xxl": "48px",
+              "section": "80px",
+              "gutter": "24px",
+              "container-max": "1280px"
+            },
+            fontFamily: {
+              "body-lg": ["Inter"],
+              "caption": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-sm": ["Inter"],
+              "display-lg-mobile": ["Inter"],
+              "display-lg": ["Inter"],
+              "label-md": ["Inter"],
+              "title-lg": ["Inter"]
+            },
+            fontSize: {
+              "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+              "caption": ["12px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "400"}],
+              "headline-md": ["30px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+              "headline-sm": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+              "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+              "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+              "title-lg": ["20px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contact-input {
+            border: 1px solid #c4c6d3;
+            transition: all 0.2s ease-in-out;
+        }
+        .contact-input:focus {
+            border-color: #002869;
+            box-shadow: 0 0 0 3px rgba(0, 40, 105, 0.15);
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden pt-[76px]">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white fixed top-0 w-full z-50 border-b border-jobbox-border transition-all duration-300 py-4" id="main-header">
+        <div class="flex justify-between items-center px-6 max-w-[1280px] mx-auto w-full">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                <!-- SVG Icon for Stafex -->
+                <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                    <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                    <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    <circle cx="16" cy="16" r="2" fill="white"/>
+                </svg>
+                <span class="tracking-tight">Stafex<span class="text-[#FF6B00]">Services</span></span>
+            </a>
+            
+            <!-- Center Navigation Links -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="index.html">Home</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="services.html">Our Services</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="about.html">About Us</a>
+                <a class="font-semibold text-jobbox-dark hover:text-jobbox-blue transition-colors duration-200 py-2 text-[15px]" href="careers.html">Careers</a>
+                <a class="font-semibold text-jobbox-blue py-2 text-[15px]" href="contact.html">Contact Us</a>
+            </div>
+            
+            <!-- Right Actions (Phone & CTA) -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="tel:7757957575" class="flex items-center gap-1.5 font-bold text-jobbox-dark hover:text-jobbox-blue transition-colors text-[15px]">
+                    <span class="material-symbols-outlined text-[20px] text-[#FF6B00]">call</span>
+                    7757957575
+                </a>
+                <a href="contact.html" class="bg-stafex-orange text-white font-bold px-6 py-2.5 rounded-lg hover:bg-opacity-90 active:scale-95 transition-all text-[15px] btn-hover-effect">
+                    Let's Talk Staffing
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-toggle" class="text-jobbox-dark focus:outline-none" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-[32px]">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+        <div id="mobile-drawer-content" class="absolute top-0 right-0 h-full w-80 bg-white shadow-2xl p-6 flex flex-col space-y-6 transform translate-x-full transition-transform duration-300 ease-out">
+            <div class="flex justify-between items-center border-b border-jobbox-border pb-4">
+                <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                        <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    </svg>
+                    <span>Stafex<span class="text-[#FF6B00]">Services</span></span>
+                </a>
+                <button id="mobile-drawer-close" class="text-jobbox-muted hover:text-jobbox-dark focus:outline-none" aria-label="Close Menu">
+                    <span class="material-symbols-outlined text-[28px]">close</span>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4 pt-4 overflow-y-auto flex-grow no-scrollbar">
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="index.html">Home</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="services.html">Our Services</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="about.html">About Us</a>
+                <a class="font-semibold text-jobbox-dark text-lg hover:text-jobbox-blue transition-colors" href="careers.html">Careers</a>
+                <a class="font-semibold text-jobbox-blue text-lg" href="contact.html">Contact Us</a>
+            </div>
+            <div class="pt-6 border-t border-jobbox-border flex flex-col gap-3">
+                <a href="tel:7757957575" class="flex items-center justify-center gap-1.5 font-bold text-jobbox-dark py-2.5 rounded-lg border border-jobbox-border hover:bg-jobbox-light transition-all">
+                    <span class="material-symbols-outlined text-[20px] text-[#FF6B00]">call</span>
+                    7757957575
+                </a>
+                <a href="contact.html" class="block text-center bg-stafex-orange text-white font-bold py-2.5 rounded-lg hover:bg-opacity-95 active:scale-95 transition-all">
+                    Let's Talk Staffing
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-cover bg-center py-section px-lg overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');">
+            <!-- Dark Navy Overlay -->
+            <div class="absolute inset-0 bg-[#0B3D91]/90 pointer-events-none"></div>
+            <div class="relative z-10 max-w-container-max mx-auto reveal active">
+                <span class="text-stafex-orange font-label-md text-label-md uppercase tracking-widest block mb-sm">Connect With Us</span>
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-md">Let's Talk Staffing</h1>
+                <p class="font-body-lg text-body-lg text-on-primary/80 max-w-2xl">
+                    Whether you are looking to hire, optimize your payroll processes, or align with statutory compliance schemes, our consultants are ready to design a scalable solution for you.
+                </p>
+            </div>
+        </section>
+
+        <!-- Split Grid Details and Form -->
+        <section class="py-section px-lg bg-surface">
+            <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-xxl">
+                
+                <!-- Left Column: Details & Office locations -->
+                <div class="lg:col-span-5 space-y-xl reveal active">
+                    <div class="space-y-md">
+                        <h2 class="font-headline-sm text-headline-sm text-primary">Get in Touch Directly</h2>
+                        <p class="text-on-surface-variant font-body-md">Reach out to our offices or talk to our staffing representatives immediately.</p>
+                    </div>
+
+                    <div class="space-y-lg">
+                        <!-- Phone -->
+                        <div class="flex items-start gap-md p-md bg-surface-container-lowest border border-outline-variant rounded shadow-sm">
+                            <span class="material-symbols-outlined text-primary text-3xl">call</span>
+                            <div>
+                                <h4 class="font-title-lg text-primary">Phone</h4>
+                                <a href="tel:7757957575" class="font-body-md text-on-surface-variant hover:text-primary hover:underline transition-all">7757957575</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="flex items-start gap-md p-md bg-surface-container-lowest border border-outline-variant rounded shadow-sm">
+                            <span class="material-symbols-outlined text-primary text-3xl">mail</span>
+                            <div>
+                                <h4 class="font-title-lg text-primary">Email</h4>
+                                <a href="mailto:Contact@stafex.in" class="font-body-md text-on-surface-variant hover:text-primary hover:underline transition-all">Contact@stafex.in</a>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="flex items-start gap-md p-md bg-surface-container-lowest border border-outline-variant rounded shadow-sm">
+                            <span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+                            <div>
+                                <h4 class="font-title-lg text-primary">Corporate Headquarters</h4>
+                                <p class="font-body-md text-on-surface-variant">Mumbai, Maharashtra, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regional Locations Map Card -->
+                    <div class="p-lg bg-primary text-on-primary rounded border border-outline-variant/30 shadow-md relative overflow-hidden">
+                        <div class="relative z-10 space-y-md">
+                            <span class="material-symbols-outlined text-on-primary-container text-4xl">public</span>
+                            <h3 class="font-title-lg text-on-primary">Operational Hubs</h3>
+                            <p class="font-body-md opacity-95">Our strategic operational reach covers the major industrial heartlands of Western India:</p>
+                            <ul class="space-y-sm text-caption">
+                                <li class="flex items-center gap-xs">
+                                    <span class="material-symbols-outlined text-sm text-stafex-orange">fiber_manual_record</span>
+                                    <span>Maharashtra (Mumbai HQ, Pune Regional Center)</span>
+                                </li>
+                                <li class="flex items-center gap-xs">
+                                    <span class="material-symbols-outlined text-sm text-stafex-orange">fiber_manual_record</span>
+                                    <span>Gujarat (Ahmedabad & Vadodara Hubs)</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="absolute -bottom-xl -right-xl w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form Container -->
+                <div class="lg:col-span-7 reveal active" style="transition-delay: 200ms;">
+                    <div class="bg-surface-container-lowest border border-outline-variant p-xl rounded shadow-sm">
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-md">Request a Consultation</h3>
+                        <p class="text-on-surface-variant font-body-md mb-lg">Complete the form below and a staffing strategist will build a tailored proposal for your business.</p>
+                        
+                        <form id="contact-form" class="space-y-md">
+                            <!-- Name -->
+                            <div>
+                                <label for="name" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Full Name *</label>
+                                <input type="text" id="name" name="name" required class="w-full contact-input p-md rounded font-body-md" placeholder="Enter your full name"/>
+                            </div>
+                            
+                            <!-- Email & Phone -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                                <div>
+                                    <label for="email" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Business Email *</label>
+                                    <input type="email" id="email" name="email" required class="w-full contact-input p-md rounded font-body-md" placeholder="name@company.com"/>
+                                </div>
+                                <div>
+                                    <label for="phone" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required class="w-full contact-input p-md rounded font-body-md" placeholder="Enter 10-digit number"/>
+                                </div>
+                            </div>
+                            
+                            <!-- Company -->
+                            <div>
+                                <label for="company" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Company Name *</label>
+                                <input type="text" id="company" name="company" required class="w-full contact-input p-md rounded font-body-md" placeholder="Your business name"/>
+                            </div>
+
+                            <!-- Service Needed Dropdown -->
+                            <div>
+                                <label for="service" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">Service Requirement *</label>
+                                <select id="service" name="service" required class="w-full contact-input p-md rounded font-body-md">
+                                    <option value="" disabled selected>Select a Service</option>
+                                    <option value="contract_staffing">Contract Staffing</option>
+                                    <option value="naps_nats">Apprenticeship Management (NAPS/NATS)</option>
+                                    <option value="payroll">Third Party Payroll</option>
+                                    <option value="integrated">Integrated Workforce Solutions</option>
+                                    <option value="other">Other Inquiry</option>
+                                </select>
+                            </div>
+
+                            <!-- Message -->
+                            <div>
+                                <label for="message" class="block font-label-md text-label-md uppercase tracking-wider text-primary mb-xs">How can we help? *</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full contact-input p-md rounded font-body-md" placeholder="Briefly describe your hiring or workforce requirements..."></textarea>
+                            </div>
+
+                            <!-- CTA Submit Button -->
+                            <button type="submit" class="w-full bg-stafex-orange hover:bg-stafex-orange/95 text-on-primary font-title-lg text-title-lg p-md rounded transition-all shadow-md flex items-center justify-center gap-sm">
+                                Submit Consultation Request
+                                <span class="material-symbols-outlined">send</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Popup Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-surface-container-lowest border border-outline-variant p-xl rounded shadow-2xl max-w-md w-full mx-md text-center transform scale-95 transition-transform duration-300 ease-out space-y-lg">
+            <div class="w-16 h-16 bg-primary/5 text-primary rounded-full flex items-center justify-center mx-auto">
+                <span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </div>
+            <div class="space-y-md">
+                <h3 class="font-headline-sm text-headline-sm text-primary">Submission Successful</h3>
+                <p class="font-body-md text-on-surface-variant">
+                    Thank you for reaching out to Stafex Services! Your request has been logged. A workforce advisor will contact you within 24 business hours to discuss your requirements.
+                </p>
+            </div>
+            <button id="close-success-modal" class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm rounded hover:opacity-90 transition-all uppercase tracking-wider">
+                Close Window
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-jobbox-border py-16">
+        <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+            <!-- Brand Info Column -->
+            <div class="lg:col-span-2 space-y-5">
+                <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-jobbox-dark">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#0B3D91"/>
+                        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2.5"/>
+                        <circle cx="22" cy="10" r="3.5" fill="#FF6B00"/>
+                    </svg>
+                    <span>Stafex<span class="text-[#FF6B00]">Services</span></span>
+                </a>
+                <p class="text-jobbox-muted text-sm leading-relaxed max-w-sm">
+                    Stafex Services is a workforce solutions partner delivering reliable, scalable, and compliance-driven manpower services across India.
+                </p>
+                <!-- Social Icons -->
+                <div class="flex gap-4 text-jobbox-muted">
+                    <a href="https://www.instagram.com/stafexservice?igsh=ZnFoa2R1aTFxM2R4" target="_blank" class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5 text-sm font-semibold">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        <span>Follow on Instagram</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">Quick Links</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors" href="index.html">Home</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="about.html">About Us</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="services.html">Our Services</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            
+            <!-- Candidates Column -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">For Candidates</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors" href="careers.html">Find a Job</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="careers.html">Featured Jobs</a>
+                    <a class="hover:text-jobbox-blue transition-colors" href="contact.html">Submit Resume</a>
+                </div>
+            </div>
+            
+            <!-- Contact Us Column -->
+            <div>
+                <h5 class="font-bold text-jobbox-dark mb-5 text-base">Get In Touch</h5>
+                <div class="flex flex-col gap-3.5 text-sm text-jobbox-muted">
+                    <a class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5" href="mailto:Contact@stafex.in">
+                        <span class="material-symbols-outlined text-[16px]">mail</span>
+                        Contact@stafex.in
+                    </a>
+                    <a class="hover:text-jobbox-blue transition-colors flex items-center gap-1.5" href="tel:7757957575">
+                        <span class="material-symbols-outlined text-[16px]">call</span>
+                        7757957575
+                    </a>
+                    <p class="flex items-start gap-1.5">
+                        <span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+                        <span>Corporate HQ: Mumbai,<br/>Maharashtra, India</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1280px] mx-auto px-6 mt-12 pt-8 border-t border-jobbox-border">
+            <p class="text-jobbox-muted text-xs text-center">
+                © 2026 Stafex Services. People. Potential. Performance. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for scroll animations
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Floating Nav logic
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-sm', 'shadow-md');
+                header.classList.remove('py-md', 'shadow-sm');
+            } else {
+                header.classList.add('py-md', 'shadow-sm');
+                header.classList.remove('py-sm', 'shadow-md');
+            }
+        });
+
+        // Mobile drawer toggles
+        const menuToggleBtn = document.getElementById('mobile-menu-toggle');
+        const drawerCloseBtn = document.getElementById('mobile-drawer-close');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileDrawerContent = document.getElementById('mobile-drawer-content');
+
+        function openDrawer() {
+            mobileDrawer.classList.remove('pointer-events-none', 'opacity-0');
+            mobileDrawer.classList.add('opacity-100');
+            mobileDrawerContent.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.add('pointer-events-none', 'opacity-0');
+            mobileDrawer.classList.remove('opacity-100');
+            mobileDrawerContent.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggleBtn && drawerCloseBtn && mobileDrawer && mobileDrawerContent) {
+            menuToggleBtn.addEventListener('click', openDrawer);
+            drawerCloseBtn.addEventListener('click', closeDrawer);
+            mobileDrawer.addEventListener('click', (e) => {
+                if (e.target === mobileDrawer) {
+                    closeDrawer();
+                }
+            });
+        }
+
+        // Contact Form Submission & Success Modal Interaction
+        const contactForm = document.getElementById('contact-form');
+        const successModal = document.getElementById('success-modal');
+        const successModalContainer = successModal.querySelector('div');
+        const closeSuccessModalBtn = document.getElementById('close-success-modal');
+
+        if (contactForm && successModal && closeSuccessModalBtn) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Form validation (browser handles 'required' fields natively, but we ensure all values exist)
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const company = document.getElementById('company').value.trim();
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value.trim();
+
+                if (name && email && phone && company && service && message) {
+                    // Open Modal
+                    successModal.classList.remove('pointer-events-none', 'opacity-0');
+                    successModal.classList.add('opacity-100');
+                    successModalContainer.classList.remove('scale-95');
+                    successModalContainer.classList.add('scale-100');
+                    
+                    // Reset Form
+                    contactForm.reset();
+                }
+            });
+
+            closeSuccessModalBtn.addEventListener('click', () => {
+                // Close Modal
+                successModal.classList.add('pointer-events-none', 'opacity-0');
+                successModal.classList.remove('opacity-100');
+                successModalContainer.classList.remove('scale-100');
+                successModalContainer.classList.add('scale-95');
+            });
+
+            successModal.addEventListener('click', (e) => {
+                if (e.target === successModal) {
+                    closeSuccessModalBtn.click();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
